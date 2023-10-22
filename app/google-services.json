@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "742439590812",
+    "project_id": "mahnyoh-2e7fe",
+    "storage_bucket": "mahnyoh-2e7fe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:742439590812:android:893cc7f6811bd0861c0659",
+        "android_client_info": {
+          "package_name": "com.example.mahnyoh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOeBJ9XnN6ZzE7gciQWf7o8AI1HHhVJN8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
