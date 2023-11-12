@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.mahnyoh"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -89,5 +89,6 @@ dependencies {
     implementation("com.google.android.gms:play-services-auth:20.7.0")
     implementation("com.google.android.gms:play-services-base:+")
     implementation("com.google.firebase:firebase-database-ktx:20.2.2")
+    implementation("androidx.health.connect:connect-client:1.1.0-alpha02")
 
 }
