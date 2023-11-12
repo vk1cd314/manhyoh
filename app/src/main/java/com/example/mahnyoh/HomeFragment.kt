@@ -9,13 +9,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import androidx.activity.result.ActivityResultLauncher
 import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
+import androidx.health.connect.client.permission.HealthPermission
+import androidx.health.connect.client.records.StepsRecord
+import androidx.lifecycle.lifecycleScope
+import com.example.mahnyoh.data.HealthConnectManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.fitness.Fitness
 import com.google.android.gms.fitness.FitnessOptions
 import com.google.android.gms.fitness.data.DataType
 import com.google.android.gms.fitness.request.DataReadRequest
+import kotlinx.coroutines.launch
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.Objects
@@ -32,15 +38,21 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var healthConnectManager: HealthConnectManager
+    private lateinit var requestPermissionLauncher: ActivityResultLauncher<Set<String>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+        healthConnectManager = HealthConnectManager(requireContext())
+
+        requestPermissionLauncher = registerForActivityResult(healthConnectManager.requestPermissionsActivityContract()) { grantedPermissions ->
+            if (grantedPermissions.containsAll(permissions)) {
+                // Permissions were granted, proceed with accessing Health Connect data
+                Log.i("WORK", "works")
+            } else {
+                Log.i("WORK", "Doesn't work")
+                // Handle the case where some or all permissions are not granted
+            }
         }
     }
 
@@ -56,31 +68,25 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
-        progressBar.progress = 50
+        progressBar.progress = 69
         val cardView = view.findViewById<CardView>(R.id.ViewSteps)
         cardView.setOnClickListener {
             val intent = Intent(activity, StepsActivity::class.java)
             startActivity(intent)
         }
+        healthConnectManager = HealthConnectManager(view.context)
+        val perms = healthConnectManager.requestPermissionsActivityContract()
+        perms.
+//        lifecycleScope.launch {
+//            val what = healthConnectManager.readTodayStepCount()
+//            Log.i("STEPZ", what.toString())
+//        }
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        private val permissions = setOf(
+            HealthPermission.getReadPermission(StepsRecord::class)
+        )
     }
+
 }
