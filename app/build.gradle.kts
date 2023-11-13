@@ -90,5 +90,6 @@ dependencies {
     implementation("com.google.android.gms:play-services-base:+")
     implementation("com.google.firebase:firebase-database-ktx:20.2.2")
     implementation("androidx.health.connect:connect-client:1.1.0-alpha02")
-
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    implementation("com.github.AnyChart:AnyChart-Android:1.1.5")
 }

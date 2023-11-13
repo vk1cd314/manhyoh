@@ -31,7 +31,9 @@ import androidx.health.connect.client.units.Energy
 import androidx.health.connect.client.units.Length
 import androidx.health.connect.client.units.Mass
 import androidx.health.connect.client.units.Velocity
+import com.anychart.chart.common.dataentry.DataEntry
 import com.example.mahnyoh.R
+import com.example.mahnyoh.StepsActivity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.io.IOException
@@ -42,13 +44,13 @@ import java.time.ZonedDateTime
 import java.time.temporal.ChronoUnit
 import kotlin.random.Random
 import kotlin.reflect.KClass
+import java.time.format.TextStyle
+import java.util.Locale
 
-// The minimum android level that can use Health Connect
+
 const val MIN_SUPPORTED_SDK = Build.VERSION_CODES.O_MR1
 
-/**
- * Demonstrates reading and writing from Health Connect.
- */
+
 class HealthConnectManager(private val context: Context) {
     private val healthConnectClient by lazy { HealthConnectClient.getOrCreate(context) }
 
@@ -116,12 +118,36 @@ class HealthConnectManager(private val context: Context) {
         }
     }
 
-    /**
-     * Determines whether all the specified permissions are already granted. It is recommended to
-     * call [PermissionController.getGrantedPermissions] first in the permissions flow, as if the
-     * permissions are already granted then there is no need to request permissions via
-     * [PermissionController.createRequestPermissionResultContract].
-     */
+    suspend fun readLastWeekStepDataEntries(): List<DataEntry> {
+        val stepDataEntries = mutableListOf<DataEntry>()
+
+        for (i in 0..6) {
+            val date = LocalDate.now().minusDays(i.toLong())
+            val dayOfWeek = date.dayOfWeek.getDisplayName(TextStyle.SHORT, Locale.getDefault())
+            val startOfDay = date.atStartOfDay().toInstant(ZoneOffset.UTC)
+            val endOfDay = date.plusDays(1).atStartOfDay().toInstant(ZoneOffset.UTC)
+
+            val request = ReadRecordsRequest(
+                recordType = StepsRecord::class,
+                timeRangeFilter = TimeRangeFilter.between(startOfDay, endOfDay)
+            )
+
+            val response = healthConnectClient.readRecords(request)
+
+            val dailyTotal = response.records.fold(0) { total, record ->
+                if (record is StepsRecord) {
+                    total + record.count.toInt()
+                } else {
+                    total
+                }
+            }
+
+            stepDataEntries.add(StepsActivity.CustomDataEntry(dayOfWeek, dailyTotal))
+        }
+
+        return stepDataEntries.reversed() // Reverse to get the entries in chronological order
+    }
+
     suspend fun hasAllPermissions(permissions: Set<String>): Boolean {
         return healthConnectClient.permissionController.getGrantedPermissions()
             .containsAll(permissions)
@@ -135,12 +161,6 @@ class HealthConnectManager(private val context: Context) {
         healthConnectClient.permissionController.revokeAllPermissions()
     }
 
-    /**
-     * Obtains a list of [ExerciseSessionRecord]s in a specified time frame. An Exercise Session Record is a
-     * period of time given to an activity, that would make sense to a user, e.g. "Afternoon run"
-     * etc. It does not necessarily mean, however, that the user was *running* for that entire time,
-     * more that conceptually, this was the activity being undertaken.
-     */
     suspend fun readExerciseSessions(start: Instant, end: Instant): List<ExerciseSessionRecord> {
         val request = ReadRecordsRequest(
             recordType = ExerciseSessionRecord::class,
@@ -150,10 +170,6 @@ class HealthConnectManager(private val context: Context) {
         return response.records
     }
 
-    /**
-     * Writes an [ExerciseSessionRecord] to Health Connect, and additionally writes underlying data for
-     * the session too, such as [StepsRecord], [DistanceRecord] etc.
-     */
     suspend fun writeExerciseSession(
         start: ZonedDateTime,
         end: ZonedDateTime
@@ -193,9 +209,6 @@ class HealthConnectManager(private val context: Context) {
         )
     }
 
-    /**
-     * Deletes an [ExerciseSessionRecord] and underlying data.
-     */
     suspend fun deleteExerciseSession(uid: String) {
         val exerciseSession = healthConnectClient.readRecord(ExerciseSessionRecord::class, uid)
         healthConnectClient.deleteRecords(
@@ -219,14 +232,10 @@ class HealthConnectManager(private val context: Context) {
         }
     }
 
-    /**
-     * Reads aggregated data and raw data for selected data types, for a given [ExerciseSessionRecord].
-     */
     suspend fun readAssociatedSessionData(
         uid: String
     ): ExerciseSessionData {
         val exerciseSession = healthConnectClient.readRecord(ExerciseSessionRecord::class, uid)
-        // Use the start time and end time from the session, for reading raw and aggregate data.
         val timeRangeFilter = TimeRangeFilter.between(
             startTime = exerciseSession.record.startTime,
             endTime = exerciseSession.record.endTime
@@ -243,9 +252,6 @@ class HealthConnectManager(private val context: Context) {
             SpeedRecord.SPEED_MAX,
             SpeedRecord.SPEED_MIN
         )
-        // Limit the data read to just the application that wrote the session. This may or may not
-        // be desirable depending on the use case: In some cases, it may be useful to combine with
-        // data written by other apps.
         val dataOriginFilter = setOf(exerciseSession.record.metadata.dataOrigin)
         val aggregateRequest = AggregateRequest(
             metrics = aggregateDataTypes,
@@ -273,19 +279,11 @@ class HealthConnectManager(private val context: Context) {
         )
     }
 
-    /**
-     * Deletes all existing sleep data.
-     */
     suspend fun deleteAllSleepData() {
         val now = Instant.now()
         healthConnectClient.deleteRecords(SleepSessionRecord::class, TimeRangeFilter.before(now))
     }
 
-    /**
-     * Generates a week's worth of sleep data using a [SleepSessionRecord] to describe the overall
-     * period of sleep, with multiple [SleepSessionRecord.Stage] periods which cover the entire
-     * [SleepSessionRecord]. For the purposes of this sample, the sleep stage data is generated randomly.
-     */
     suspend fun generateSleepData() {
         val records = mutableListOf<Record>()
         // Make yesterday the last day of the sleep data
@@ -312,13 +310,6 @@ class HealthConnectManager(private val context: Context) {
         healthConnectClient.insertRecords(records)
     }
 
-    /**
-     * Reads sleep sessions for the previous seven days (from yesterday) to show a week's worth of
-     * sleep data.
-     *
-     * In addition to reading [SleepSessionRecord]s, for each session, the duration is calculated to
-     * demonstrate aggregation, and the underlying [SleepSessionRecord.Stage] data is also read.
-     */
     suspend fun readSleepSessions(): List<SleepSessionData> {
         val lastDay = ZonedDateTime.now().truncatedTo(ChronoUnit.DAYS)
             .minusDays(1)
@@ -357,17 +348,11 @@ class HealthConnectManager(private val context: Context) {
         return sessions
     }
 
-    /**
-     * Writes [WeightRecord] to Health Connect.
-     */
     suspend fun writeWeightInput(weight: WeightRecord) {
         val records = listOf(weight)
         healthConnectClient.insertRecords(records)
     }
 
-    /**
-     * Reads in existing [WeightRecord]s.
-     */
     suspend fun readWeightInputs(start: Instant, end: Instant): List<WeightRecord> {
         val request = ReadRecordsRequest(
             recordType = WeightRecord::class,
@@ -377,9 +362,6 @@ class HealthConnectManager(private val context: Context) {
         return response.records
     }
 
-    /**
-     * Returns the weekly average of [WeightRecord]s.
-     */
     suspend fun computeWeeklyAverage(start: Instant, end: Instant): Mass? {
         val request = AggregateRequest(
             metrics = setOf(WeightRecord.WEIGHT_AVG),
@@ -389,9 +371,6 @@ class HealthConnectManager(private val context: Context) {
         return response[WeightRecord.WEIGHT_AVG]
     }
 
-    /**
-     * Deletes a [WeightRecord]s.
-     */
     suspend fun deleteWeightInput(uid: String) {
         healthConnectClient.deleteRecords(
             WeightRecord::class,
@@ -400,29 +379,16 @@ class HealthConnectManager(private val context: Context) {
         )
     }
 
-    /**
-     * Obtains a changes token for the specified record types.
-     */
     suspend fun getChangesToken(dataTypes: Set<KClass<out Record>>): String {
         val request = ChangesTokenRequest(dataTypes)
         return healthConnectClient.getChangesToken(request)
     }
 
-    /**
-     * Creates a [Flow] of change messages, using a changes token as a start point. The flow will
-     * terminate when no more changes are available, and the final message will contain the next
-     * changes token to use.
-     */
     suspend fun getChanges(token: String): Flow<ChangesMessage> = flow {
         var nextChangesToken = token
         do {
             val response = healthConnectClient.getChanges(nextChangesToken)
             if (response.changesTokenExpired) {
-                // As described here: https://developer.android.com/guide/health-and-fitness/health-connect/data-and-data-types/differential-changes-api
-                // tokens are only valid for 30 days. It is important to check whether the token has
-                // expired. As well as ensuring there is a fallback to using the token (for example
-                // importing data since a certain date), more importantly, the app should ensure
-                // that the changes API is used sufficiently regularly that tokens do not expire.
                 throw IOException("Changes token has expired")
             }
             emit(ChangesMessage.ChangeList(response.changes))
@@ -431,9 +397,6 @@ class HealthConnectManager(private val context: Context) {
         emit(ChangesMessage.NoMoreChanges(nextChangesToken))
     }
 
-    /**
-     * Creates a random sleep stage that spans the specified [start] to [end] time.
-     */
     private fun generateSleepStages(
         start: ZonedDateTime,
         end: ZonedDateTime
@@ -455,9 +418,6 @@ class HealthConnectManager(private val context: Context) {
         return sleepStages
     }
 
-    /**
-     * Convenience function to reuse code for reading data.
-     */
     private suspend inline fun <reified T : Record> readData(
         timeRangeFilter: TimeRangeFilter,
         dataOriginFilter: Set<DataOrigin> = setOf()
@@ -518,7 +478,6 @@ class HealthConnectManager(private val context: Context) {
         )
     )
 
-    // Represents the two types of messages that can be sent in a Changes flow.
     sealed class ChangesMessage {
         data class NoMoreChanges(val nextChangesToken: String) : ChangesMessage()
         data class ChangeList(val changes: List<Change>) : ChangesMessage()
