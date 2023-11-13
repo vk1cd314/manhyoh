@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
 import androidx.health.connect.client.permission.HealthPermission
@@ -41,19 +42,18 @@ class HomeFragment : Fragment() {
     private lateinit var healthConnectManager: HealthConnectManager
     private lateinit var requestPermissionLauncher: ActivityResultLauncher<Set<String>>
 
+    private val permissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestMultiplePermissions()
+    ) { result ->
+        if (result.all { it.value }) {
+            Log.i("WHAAAAT", "All required permissions granted")
+        } else {
+            Log.w("WHAAAT", "Not all required permissions granted")
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        healthConnectManager = HealthConnectManager(requireContext())
-
-        requestPermissionLauncher = registerForActivityResult(healthConnectManager.requestPermissionsActivityContract()) { grantedPermissions ->
-            if (grantedPermissions.containsAll(permissions)) {
-                // Permissions were granted, proceed with accessing Health Connect data
-                Log.i("WORK", "works")
-            } else {
-                Log.i("WORK", "Doesn't work")
-                // Handle the case where some or all permissions are not granted
-            }
-        }
     }
 
     override fun onCreateView(
@@ -75,16 +75,17 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
         healthConnectManager = HealthConnectManager(view.context)
-        val perms = healthConnectManager.requestPermissionsActivityContract()
-        perms.
-//        lifecycleScope.launch {
-//            val what = healthConnectManager.readTodayStepCount()
-//            Log.i("STEPZ", what.toString())
-//        }
+        Log.d("WHAAAT", "Checking permissions")
+        permissionLauncher.launch(permissions)
+        lifecycleScope.launch {
+            val steps = healthConnectManager.readTodayStepCount()
+            Log.i("WHAAAT", (steps * 2.0f).toString())
+            progressBar.progress = (steps * 2.0f).toInt()
+        }
     }
 
     companion object {
-        private val permissions = setOf(
+        private val permissions = arrayOf(
             HealthPermission.getReadPermission(StepsRecord::class)
         )
     }
