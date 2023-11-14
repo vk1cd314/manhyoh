@@ -1,28 +1,37 @@
 package com.example.mahnyoh
 
+import android.graphics.Color
+import android.graphics.DashPathEffect
+import android.graphics.LinearGradient
+import android.graphics.Shader
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.health.connect.client.permission.HealthPermission
+import androidx.health.connect.client.records.DistanceRecord
 import androidx.health.connect.client.records.StepsRecord
 import androidx.lifecycle.lifecycleScope
-import com.anychart.AnyChart
-import com.anychart.AnyChartView
-import com.anychart.chart.common.dataentry.DataEntry
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.anychart.chart.common.dataentry.ValueDataEntry
-import com.anychart.charts.Cartesian
-import com.anychart.core.cartesian.series.Line
-import com.anychart.data.Mapping
-import com.anychart.data.Set
-import com.anychart.enums.Anchor
-import com.anychart.enums.MarkerType
-import com.anychart.enums.TooltipPositionMode
-import com.anychart.graphics.vector.Stroke
+import com.anychart.editor.Step
+import com.example.mahnyoh.util.MarkerView
 import com.example.mahnyoh.data.HealthConnectManager
+import com.example.mahnyoh.data.StepInfo
+import com.example.mahnyoh.util.XAxisFormatter
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.components.Description
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.components.YAxis
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class StepsActivity : AppCompatActivity() {
     private lateinit var healthConnectManager: HealthConnectManager
@@ -39,46 +48,121 @@ class StepsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.step_activity)
 
+        setUpHealthConnect()
+        setUpBackButton()
+        setUpStepChart()
+        setUpRecyclerView()
+    }
+
+    private fun setUpBackButton() {
+        val backFab = findViewById<FloatingActionButton>(R.id.backButton)
+        backFab.setOnClickListener {
+            onBackPressed()
+        }
+    }
+
+    private fun getLastSevenDays(): List<String> {
+        val dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        return (0..6).map { daysAgo ->
+            LocalDate.now().minusDays(daysAgo.toLong()).format(dateFormatter)
+        }.reversed()
+    }
+
+    private fun setUpRecyclerView() {
+        val recyclerView: RecyclerView = findViewById(R.id.step_count_recyclerview)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+//        val stepData = listOf(
+//            StepInfo("2023-01-01", 1000, 0.8),
+//            StepInfo("2023-01-02", 1500, 1.2),
+//            StepInfo("2023-01-02", 1500, 1.2),
+//            StepInfo("2023-01-02", 1500, 1.2),
+//            StepInfo("2023-01-02", 1500, 1.2),
+//            StepInfo("2023-01-02", 1500, 1.2),
+//            StepInfo("2023-01-02", 1500, 1.2),
+//            StepInfo("2023-01-02", 1500, 1.2),
+//            StepInfo("2023-01-02", 1500, 1.2),
+//            StepInfo("2023-01-02", 1500, 1.2)
+//        )
+        val stepData: ArrayList<StepInfo> = arrayListOf()
+        lifecycleScope.launch {
+            val steps = healthConnectManager.readLastWeekStepDataEntriesWithDistance()
+            val dateList = getLastSevenDays()
+            for ((id, entry) in steps.withIndex()) {
+                stepData.add(StepInfo(dateList[id] + " " + entry.first, entry.second, entry.third))
+            }
+            stepData.reverse()
+            val adapter = StepAdapter(stepData)
+            recyclerView.adapter = adapter
+        }
+    }
+
+
+    private fun setUpHealthConnect() {
         healthConnectManager = HealthConnectManager(this)
         permissionLauncher.launch(permissions)
+    }
 
-        val anyChartView = findViewById<AnyChartView>(R.id.any_chart_view)
-        anyChartView.setProgressBar(findViewById(R.id.progress_bar)) // If you have a progress bar
+    private fun setUpStepChart() {
+        val lineChart = findViewById<LineChart>(R.id.lineChart)
+        val entries = ArrayList<Entry>()
+        val xAxisStrings: ArrayList<String> = arrayListOf()
 
-        val cartesian: Cartesian = AnyChart.line()
+        lineChart.xAxis.isEnabled = true
+        lineChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
 
-        cartesian.animation(true)
-        cartesian.tooltip().positionMode(TooltipPositionMode.POINT)
-
-        cartesian.title("Step Activity Over the Last Week")
-
-        cartesian.yAxis(0).title("Steps Count")
-        cartesian.xAxis(0).labels().padding(5.0, 5.0, 5.0, 5.0)
-
+        val markerView = MarkerView(this, R.layout.marker_view)
+        lineChart.marker = markerView
         lifecycleScope.launch {
-            val seriesData = healthConnectManager.readLastWeekStepDataEntries()
+            val stepData = healthConnectManager.readLastWeekStepDataEntries()
+            var id = 0
+            for (entry in stepData) {
+                val dayOfWeek = entry.first
+                val dailyTotalSteps = entry.second
 
-            val set = com.anychart.data.Set.instantiate()
-            set.data(seriesData)
-            val seriesMapping = set.mapAs("{ x: 'x', value: 'value' }")
+                xAxisStrings.add(dayOfWeek)
+                entries.add(Entry(id.toFloat(), dailyTotalSteps.toFloat()))
+                id += 1
+            }
+            lineChart.xAxis.valueFormatter = XAxisFormatter(xAxisStrings)
 
-            val series1: Line = cartesian.line(seriesMapping)
-            series1.name("Steps")
-            series1.hovered().markers().enabled(true)
-            series1.hovered().markers()
-                .type(MarkerType.CIRCLE)
-                .size(4.0)
-            series1.tooltip()
-                .position("right")
-                .anchor(Anchor.LEFT_CENTER)
-                .offsetX(5.0)
-                .offsetY(5.0)
+            val lineDataSet = LineDataSet(entries, "Label").apply {
+                axisDependency = YAxis.AxisDependency.LEFT
+                color = Color.BLACK
+                setDrawValues(false)
 
-            cartesian.legend().enabled(true)
-            cartesian.legend().fontSize(13.0)
-            cartesian.legend().padding(0.0, 0.0, 10.0, 0.0)
+                setDrawCircles(true)
+                setCircleColor(Color.RED)
+                circleRadius = 5f
 
-            anyChartView.setChart(cartesian)
+                val gradientColors = intArrayOf(Color.GREEN, Color.TRANSPARENT)
+                val gradient = LinearGradient(
+                    0f, 0f, 0f, lineChart.height.toFloat(),
+                    gradientColors, null, Shader.TileMode.MIRROR
+                )
+                fillDrawable = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, gradientColors)
+                setDrawFilled(true)
+
+                mode = LineDataSet.Mode.CUBIC_BEZIER
+
+                val dashLength = 20f
+                val spaceLength = 10f
+                val phase = 0f
+                val dashPathEffect = DashPathEffect(floatArrayOf(dashLength, spaceLength), phase)
+                enableDashedLine(dashLength, spaceLength, phase)
+
+            }
+
+            lineChart.legend.isEnabled = false
+            val description = Description().apply {
+                text = "Step Counts For the Last 7 days"
+                textSize = 10f
+                textColor = Color.GRAY
+            }
+            lineChart.description = description
+            val lineData = LineData(lineDataSet)
+            lineChart.data = lineData
+            lineChart.invalidate()
         }
 
     }
@@ -86,7 +170,8 @@ class StepsActivity : AppCompatActivity() {
     public class CustomDataEntry(x: String, value: Number) : ValueDataEntry(x, value)
     companion object {
         private val permissions = arrayOf(
-            HealthPermission.getReadPermission(StepsRecord::class)
+            HealthPermission.getReadPermission(StepsRecord::class),
+            HealthPermission.getReadPermission(DistanceRecord::class)
         )
     }
 }

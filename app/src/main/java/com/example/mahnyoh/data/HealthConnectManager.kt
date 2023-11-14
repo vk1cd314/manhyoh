@@ -118,8 +118,8 @@ class HealthConnectManager(private val context: Context) {
         }
     }
 
-    suspend fun readLastWeekStepDataEntries(): List<DataEntry> {
-        val stepDataEntries = mutableListOf<DataEntry>()
+    suspend fun readLastWeekStepDataEntries(): List<Pair<String, Int>> {
+        val stepDataEntries = mutableListOf<Pair<String, Int>>()
 
         for (i in 0..6) {
             val date = LocalDate.now().minusDays(i.toLong())
@@ -142,11 +142,54 @@ class HealthConnectManager(private val context: Context) {
                 }
             }
 
-            stepDataEntries.add(StepsActivity.CustomDataEntry(dayOfWeek, dailyTotal))
+            stepDataEntries.add(Pair(dayOfWeek, dailyTotal))
         }
 
         return stepDataEntries.reversed() // Reverse to get the entries in chronological order
     }
+
+    suspend fun readLastWeekStepDataEntriesWithDistance(): List<Triple<String, Int, Double>> {
+        val stepDataEntries = mutableListOf<Triple<String, Int, Double>>()
+
+        for (i in 0..6) {
+            val date = LocalDate.now().minusDays(i.toLong())
+            val dayOfWeek = date.dayOfWeek.getDisplayName(TextStyle.SHORT, Locale.getDefault())
+            val startOfDay = date.atStartOfDay().toInstant(ZoneOffset.UTC)
+            val endOfDay = date.plusDays(1).atStartOfDay().toInstant(ZoneOffset.UTC)
+
+            // Fetch steps count
+            val stepsRequest = ReadRecordsRequest(
+                recordType = StepsRecord::class,
+                timeRangeFilter = TimeRangeFilter.between(startOfDay, endOfDay)
+            )
+            val stepsResponse = healthConnectClient.readRecords(stepsRequest)
+            val dailyTotalSteps = stepsResponse.records.fold(0) { total, record ->
+                if (record is StepsRecord) {
+                    total + record.count.toInt()
+                } else {
+                    total
+                }
+            }
+
+            val distanceRequest = ReadRecordsRequest(
+                recordType = DistanceRecord::class,
+                timeRangeFilter = TimeRangeFilter.between(startOfDay, endOfDay)
+            )
+            val distanceResponse = healthConnectClient.readRecords(distanceRequest)
+            val dailyTotalDistance = distanceResponse.records.fold(0.0) { total, record ->
+                if (record is DistanceRecord) {
+                    total + record.distance.inKilometers
+                } else {
+                    total
+                }
+            }
+
+            stepDataEntries.add(Triple(dayOfWeek, dailyTotalSteps, dailyTotalDistance))
+        }
+
+        return stepDataEntries.reversed() // Reverse to get the entries in chronological order
+    }
+
 
     suspend fun hasAllPermissions(permissions: Set<String>): Boolean {
         return healthConnectClient.permissionController.getGrantedPermissions()
