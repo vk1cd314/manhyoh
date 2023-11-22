@@ -15,4 +15,11 @@
     <color name="tansparentColor">#00FFFFFF</color>
     <color name ="hunterGreen">#355E3B</color>
     <color name="castGreen">#00563B</color>
+    <color name="darkishPink">#e94667</color>
+    <color name="blueMain">#71c7d3</color>
+    <color name="paleGrey">#ede5f0</color>
+    <color name="lightTeal">#9cd8e0</color>
+    <color name="softPurple">#a77bb5</color>
+    <color name="greyishBrown">#4d4d4d</color>
+    <color name="grey">#D3D3D3</color>
 </resources>

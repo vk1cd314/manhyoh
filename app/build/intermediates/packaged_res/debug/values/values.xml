@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sleep_notes_array">
+        <item>I slept great!</item>
+        <item>I got woken up</item>
+        <item>Struggled to sleep</item>
+        <item>Much needed sleep</item>
+        <item>Restful sleep</item>
+    </string-array>
+    <color name="black">#FF000000</color>
+    <color name="blueMain">#71c7d3</color>
+    <color name="castGreen">#00563B</color>
+    <color name="darkblue">#000080</color>
+    <color name="darkishPink">#e94667</color>
+    <color name="green">#BEDD9B</color>
+    <color name="grey">#D3D3D3</color>
+    <color name="greyishBrown">#4d4d4d</color>
+    <color name="hunterGreen">#355E3B</color>
+    <color name="lightTeal">#9cd8e0</color>
+    <color name="orange">#FFB38A</color>
+    <color name="paleGrey">#ede5f0</color>
+    <color name="pinkColor">#FF003B</color>
+    <color name="softPurple">#a77bb5</color>
+    <color name="tansparentColor">#00FFFFFF</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="textColor">#ECE5EC</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="yellow">#F8DC75</color>
+    <string name="app_name">MahnYoh</string>
+    <string name="gcm_defaultSenderId" translatable="false">742439590812</string>
+    <string name="generate_sleep_data">Generate sleep data</string>
+    <string name="google_api_key" translatable="false">AIzaSyBOeBJ9XnN6ZzE7gciQWf7o8AI1HHhVJN8</string>
+    <string name="google_app_id" translatable="false">1:742439590812:android:893cc7f6811bd0861c0659</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBOeBJ9XnN6ZzE7gciQWf7o8AI1HHhVJN8</string>
+    <string name="google_storage_bucket" translatable="false">mahnyoh-2e7fe.appspot.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_header_desc">"The background for home page header."</string>
+    <string name="log_in">Log In</string>
+    <string name="project_id" translatable="false">mahnyoh-2e7fe</string>
+    <string name="sleep_duration">Duration:</string>
+    <string name="sleep_notes">Notes:</string>
+    <string name="sleep_stages">Sleep stages:</string>
+    <string name="sleep_time">Time:</string>
+    <string name="title_activity_dashboard">Dashboard</string>
+    <string name="title_activity_login">login</string>
+    <string name="title_activity_new">newActivity</string>
+    <string name="title_activity_signup">signup</string>
+    <string name="update_lowercase">update</string>
+    <string name="your_goals">Your goals:</string>
+    <style name="Button4">
+        <item name="cornerSize">20%</item>
+
+    </style>
+    <style name="Button5">
+        <item name="cornerSize">50%</item>
+
+    </style>
+    <style name="Circular">
+        <item name="cornerSize">50%</item>
+    </style>
+    <style name="CornerCut">
+        <item name="cornerSize">15dp</item>
+        <item name="cornerFamily">cut</item>
+    </style>
+    <style name="DiamondCut">
+        <item name="cornerSize">75dp</item>
+        <item name="cornerFamily">cut</item>
+    </style>
+    <style name="RoundedSquare">
+        <item name="cornerSize">10%</item>
+    </style>
+    <style name="SpecificCornerCut">
+        <item name="cornerSizeTopRight">75dp</item>
+        <item name="cornerFamilyTopRight">cut</item>
+        <item name="cornerSizeBottomLeft">75dp</item>
+        <item name="cornerFamilyBottomLeft">cut</item>
+    </style>
+    <style name="SpecificCornerRounded">
+        <item name="cornerSizeTopRight">75dp</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+        <item name="cornerSizeBottomLeft">75dp</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+    </style>
+    <style name="StatisticsDateTabStyle">
+        <item name="android:fontFamily">@font/nunito_black</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="Theme.App" parent="Theme.MahnYoh">
+
+    <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
+</style>
+    <style name="Theme.MahnYoh" parent="Theme.Material3.Light.NoActionBar"/>
+    <style name="ThemeOverlay.App.BottomNavigationView" parent="">
+<item name="colorSurface">@color/white</item>
+<item name="colorOnSurfaceVariant">@color/white</item>
+</style>
+    <style name="Widget.App.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+<item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
+</style>
+</resources>

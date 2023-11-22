@@ -19,4 +19,7 @@
     <string name="sleep_duration">Duration:</string>
     <string name="sleep_time">Time:</string>
     <string name="sleep_stages">Sleep stages:</string>
+    <string name="home_header_desc">"The background for home page header."</string>
+    <string name="your_goals">Your goals:</string>
+    <string name="update_lowercase">update</string>
 </resources>

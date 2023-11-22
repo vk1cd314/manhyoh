@@ -54,7 +54,7 @@ class ProfileFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        val logout = requireActivity().findViewById<Button>(R.id.logout_button)
+        val logout = requireActivity().findViewById<TextView>(R.id.logout_button)
         logout.setOnClickListener {
             Firebase.auth.signOut()
             val intent = Intent(context, MainActivity::class.java)
