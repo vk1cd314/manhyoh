@@ -53,6 +53,7 @@
         app:layout_constraintBottom_toTopOf="@+id/wageCL"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/hunterGreen"
         android:outlineSpotShadowColor="@color/black"
 
         app:cardCornerRadius="10dp"
@@ -63,6 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/nunito_black"
+            android:textColor="@color/white"
 
             android:text="Edit Profile"
             android:textSize="20sp"
@@ -129,7 +131,7 @@
         android:layout_height="84dp"
         android:layout_marginStart="10dp"
         android:background="@drawable/background_score"
-        android:backgroundTint="@color/yellow"
+        android:backgroundTint="@color/orange"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="8dp"
