@@ -360,6 +360,7 @@
 
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/cardio_card"
                     android:layout_width="1.8in"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"

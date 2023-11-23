@@ -38,6 +38,9 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final ImageView cardio;
 
   @NonNull
+  public final CardView cardioCard;
+
+  @NonNull
   public final HorizontalScrollView horizontalScrollView2;
 
   @NonNull
@@ -87,17 +90,19 @@ public final class FragmentHomeBinding implements ViewBinding {
 
   private FragmentHomeBinding(@NonNull ScrollView rootView, @NonNull CardView ViewSteps,
       @NonNull LinearLayout balls, @NonNull CardView cardView5, @NonNull ImageView cardio,
-      @NonNull HorizontalScrollView horizontalScrollView2, @NonNull ShapeableImageView notifyBtnId,
-      @NonNull TextView numberTextView, @NonNull CardView nutritionCardView,
-      @NonNull ProgressBar progressBar, @NonNull ImageView sprint, @NonNull ImageView squat,
-      @NonNull ImageView strength, @NonNull ImageView stretch, @NonNull TextView textView,
-      @NonNull TextView textView10, @NonNull TextView textView11, @NonNull TextView textView18,
-      @NonNull TextView textView19, @NonNull TextView textViewSeeMore, @NonNull TextView tv1) {
+      @NonNull CardView cardioCard, @NonNull HorizontalScrollView horizontalScrollView2,
+      @NonNull ShapeableImageView notifyBtnId, @NonNull TextView numberTextView,
+      @NonNull CardView nutritionCardView, @NonNull ProgressBar progressBar,
+      @NonNull ImageView sprint, @NonNull ImageView squat, @NonNull ImageView strength,
+      @NonNull ImageView stretch, @NonNull TextView textView, @NonNull TextView textView10,
+      @NonNull TextView textView11, @NonNull TextView textView18, @NonNull TextView textView19,
+      @NonNull TextView textViewSeeMore, @NonNull TextView tv1) {
     this.rootView = rootView;
     this.ViewSteps = ViewSteps;
     this.balls = balls;
     this.cardView5 = cardView5;
     this.cardio = cardio;
+    this.cardioCard = cardioCard;
     this.horizontalScrollView2 = horizontalScrollView2;
     this.notifyBtnId = notifyBtnId;
     this.numberTextView = numberTextView;
@@ -164,6 +169,12 @@ public final class FragmentHomeBinding implements ViewBinding {
       id = R.id.cardio;
       ImageView cardio = ViewBindings.findChildViewById(rootView, id);
       if (cardio == null) {
+        break missingId;
+      }
+
+      id = R.id.cardio_card;
+      CardView cardioCard = ViewBindings.findChildViewById(rootView, id);
+      if (cardioCard == null) {
         break missingId;
       }
 
@@ -264,9 +275,9 @@ public final class FragmentHomeBinding implements ViewBinding {
       }
 
       return new FragmentHomeBinding((ScrollView) rootView, ViewSteps, balls, cardView5, cardio,
-          horizontalScrollView2, notifyBtnId, numberTextView, nutritionCardView, progressBar,
-          sprint, squat, strength, stretch, textView, textView10, textView11, textView18,
-          textView19, textViewSeeMore, tv1);
+          cardioCard, horizontalScrollView2, notifyBtnId, numberTextView, nutritionCardView,
+          progressBar, sprint, squat, strength, stretch, textView, textView10, textView11,
+          textView18, textView19, textViewSeeMore, tv1);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

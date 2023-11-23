@@ -55,7 +55,17 @@
         android:testOnly="true"
         android:theme="@style/Theme.MahnYoh" >
         <activity
-            android:name="com.example.mahnyoh.signup"
+            android:name="com.example.mahnyoh.ExDetails"
+            android:exported="false"
+            android:label="@string/title_activity_ex_details"
+            android:theme="@style/Theme.MahnYoh" />
+        <activity
+            android:name="com.example.mahnyoh.CardioEx"
+            android:exported="false"
+            android:label="@string/title_activity_cardio_ex"
+            android:theme="@style/Theme.MahnYoh" />
+        <activity
+            android:name="com.example.mahnyoh.Signup"
             android:exported="false"
             android:label="@string/title_activity_signup"
             android:theme="@style/Theme.MahnYoh" />

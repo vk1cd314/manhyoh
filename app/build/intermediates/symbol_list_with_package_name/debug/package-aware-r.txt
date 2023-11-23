@@ -2858,13 +2858,18 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable armroll
+drawable asquat
 drawable avd_hide_password
 drawable avd_show_password
 drawable background_score
+drawable baseline_access_time_24
 drawable baseline_arrow_back_24
 drawable baseline_home_24
+drawable baseline_local_fire_department_24
 drawable baseline_moving_24
 drawable baseline_person_outline_24
+drawable baseline_play_arrow_24
 drawable boy_girl_running
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -2874,7 +2879,10 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable burpee
+drawable buttkick
 drawable cardio
+drawable cardio_cover
 drawable circular_progress_bar
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
@@ -2910,6 +2918,7 @@ drawable forest
 drawable forest_night
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable high_knees1
 drawable ic_account_full
 drawable ic_activity
 drawable ic_arrow_back_black_24
@@ -2947,6 +2956,8 @@ drawable ic_step
 drawable ic_twitter
 drawable ic_wage
 drawable ic_weight
+drawable jumpin
+drawable jumpingjack
 drawable loginbackground
 drawable logo
 drawable lungsquat
@@ -2973,6 +2984,7 @@ drawable material_ic_keyboard_arrow_previous_black_24dp
 drawable material_ic_keyboard_arrow_right_black_24dp
 drawable material_ic_menu_arrow_down_black_24dp
 drawable material_ic_menu_arrow_up_black_24dp
+drawable mountain_climbers
 drawable mtrl_bottomsheet_drag_handle
 drawable mtrl_checkbox_button
 drawable mtrl_checkbox_button_checked_unchecked
@@ -3030,7 +3042,10 @@ drawable password_icon_focused
 drawable profile
 drawable progress
 drawable protein
+drawable pushup
 drawable running
+drawable shadoweffect
+drawable shouldertaps
 drawable shrub
 drawable sports
 drawable sprint
@@ -3161,6 +3176,8 @@ id buttonPanel
 id cancel_button
 id cardView5
 id cardio
+id cardio_card
+id cardiostart
 id center
 id centerCrop
 id centerInside
@@ -3288,6 +3305,7 @@ id inward
 id is_pooling_container_tag
 id italic
 id item_touch_helper_previous_elevation
+id ivVideo
 id jumpToEnd
 id jumpToStart
 id labeled
@@ -3302,6 +3320,8 @@ id lineChart
 id linear
 id listMode
 id list_item
+id llExerciseView
+id llRestView
 id logInLayout
 id login_button
 id logout_button
@@ -3399,9 +3419,11 @@ id password_toggle
 id passwords
 id path
 id pathRelative
+id pause
 id peekHeight
 id percent
 id pin
+id play
 id pooling_container_listener_holder_tag
 id position
 id postLayout
@@ -3409,6 +3431,7 @@ id pressed
 id profile
 id progress
 id progressBar
+id progressBarExercise
 id progress_circular
 id progress_horizontal
 id radio
@@ -3557,8 +3580,12 @@ id tv1
 id tvContent
 id tvDate
 id tvDistanceCovered
+id tvExerciseName
+id tvExerciseTimer
 id tvName
 id tvStepCount
+id tvTimer
+id tvUpcomingExerciseName
 id unchecked
 id uniform
 id unlabeled
@@ -3700,6 +3727,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
+layout cardioex
 layout custom_dialog
 layout dashboard
 layout design_bottom_navigation_item
@@ -3717,6 +3745,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout ex_details
 layout fragment_home
 layout fragment_profile
 layout fragment_progress
@@ -3793,7 +3822,16 @@ menu bottom_navigation_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
+raw armroll
+raw burpee
+raw buttkicker
 raw firebase_common_keep
+raw highknees
+raw jumpingjack
+raw kneelpushup
+raw mountainclimbing
+raw shouldertaps
+raw squatjump
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -4067,7 +4105,9 @@ string time_picker_minute_suffix
 string time_picker_minute_text_field
 string time_picker_period_toggle_description
 string time_picker_pm
+string title_activity_cardio_ex
 string title_activity_dashboard
+string title_activity_ex_details
 string title_activity_login
 string title_activity_new
 string title_activity_signup

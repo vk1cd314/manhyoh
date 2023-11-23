@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ExDetails"
+    android:orientation="vertical"
+    android:background="@color/white"
+    >
+
+    <LinearLayout
+        android:id="@+id/llRestView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GET READY FOR"
+            android:textColor="@color/textColor"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            />
+        <FrameLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp">
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:indeterminate="false"
+                android:max="10"
+                android:progress="100"
+                android:progressDrawable="@drawable/circular_progress_bar"
+                android:rotation="-90"/>
+
+            <LinearLayout
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                >
+                <TextView
+                    android:id="@+id/tvTimer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:text="10"/>
+            </LinearLayout>
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="UPCOMING EXERCISE : "
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/tvUpcomingExerciseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="#212121"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:text="Exercise Name"/>
+
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llExerciseView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible"
+        >
+
+        <VideoView
+            android:id="@+id/ivVideo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:contentDescription="Exercise image"
+            android:scaleType="fitXY"
+            android:src="@raw/highknees"
+            />
+
+        <TextView
+            android:id="@+id/tvExerciseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Exercise Name"
+            android:textColor="@color/textColor"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
+        <FrameLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            >
+
+            <ProgressBar
+                android:id="@+id/progressBarExercise"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:indeterminate="false"
+                android:max="30"
+                android:progress="100"
+                android:progressDrawable="@drawable/circular_progress_bar"
+                android:rotation="-90"/>
+
+            <LinearLayout
+                android:id="@+id/pause"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvExerciseTimer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:text="30"/>
+                    <ImageView
+                        android:id="@+id/play"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/baseline_play_arrow_24"
+                        android:visibility="gone"/>
+
+                </RelativeLayout>
+
+
+
+
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

@@ -90,4 +90,13 @@ class HomeFragment : Fragment() {
         )
     }
 
+    override fun onStart() {
+        super.onStart()
+        val cardio = requireActivity().findViewById<CardView>(R.id.cardio_card)
+        cardio.setOnClickListener {
+            val intent = Intent(context, CardioEx::class.java)
+            startActivity(intent)
+        }
+    }
+
 }

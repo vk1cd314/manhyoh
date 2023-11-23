@@ -22,4 +22,6 @@
     <string name="home_header_desc">"The background for home page header."</string>
     <string name="your_goals">Your goals:</string>
     <string name="update_lowercase">update</string>
+    <string name="title_activity_cardio_ex">CardioEx</string>
+    <string name="title_activity_ex_details">ExDetails</string>
 </resources>

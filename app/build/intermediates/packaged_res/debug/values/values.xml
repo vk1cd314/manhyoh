@@ -42,7 +42,9 @@
     <string name="sleep_notes">Notes:</string>
     <string name="sleep_stages">Sleep stages:</string>
     <string name="sleep_time">Time:</string>
+    <string name="title_activity_cardio_ex">CardioEx</string>
     <string name="title_activity_dashboard">Dashboard</string>
+    <string name="title_activity_ex_details">ExDetails</string>
     <string name="title_activity_login">login</string>
     <string name="title_activity_new">newActivity</string>
     <string name="title_activity_signup">signup</string>

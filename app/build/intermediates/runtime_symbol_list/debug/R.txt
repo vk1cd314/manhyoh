@@ -2857,13 +2857,18 @@ int drawable abc_textfield_search_activated_mtrl_alpha 0x7f080075
 int drawable abc_textfield_search_default_mtrl_alpha 0x7f080076
 int drawable abc_textfield_search_material 0x7f080077
 int drawable abc_vector_test 0x7f080078
+int drawable armroll 0x7f080136
+int drawable asquat 0x7f080137
 int drawable avd_hide_password 0x7f080079
 int drawable avd_show_password 0x7f08007a
 int drawable background_score 0x7f08007b
+int drawable baseline_access_time_24 0x7f08013d
 int drawable baseline_arrow_back_24 0x7f08007c
 int drawable baseline_home_24 0x7f08007d
+int drawable baseline_local_fire_department_24 0x7f08013e
 int drawable baseline_moving_24 0x7f08007e
 int drawable baseline_person_outline_24 0x7f08007f
+int drawable baseline_play_arrow_24 0x7f08013f
 int drawable boy_girl_running 0x7f080080
 int drawable btn_checkbox_checked_mtrl 0x7f080081
 int drawable btn_checkbox_checked_to_unchecked_mtrl_animation 0x7f080082
@@ -2873,7 +2878,10 @@ int drawable btn_radio_off_mtrl 0x7f080085
 int drawable btn_radio_off_to_on_mtrl_animation 0x7f080086
 int drawable btn_radio_on_mtrl 0x7f080087
 int drawable btn_radio_on_to_off_mtrl_animation 0x7f080088
+int drawable burpee 0x7f080134
+int drawable buttkick 0x7f080138
 int drawable cardio 0x7f080089
+int drawable cardio_cover 0x7f080130
 int drawable circular_progress_bar 0x7f08008a
 int drawable common_full_open_on_phone 0x7f08008b
 int drawable common_google_signin_btn_icon_dark 0x7f08008c
@@ -2909,6 +2917,7 @@ int drawable forest 0x7f0800a9
 int drawable forest_night 0x7f0800aa
 int drawable googleg_disabled_color_18 0x7f0800ab
 int drawable googleg_standard_color_18 0x7f0800ac
+int drawable high_knees1 0x7f080139
 int drawable ic_account_full 0x7f0800ad
 int drawable ic_activity 0x7f0800ae
 int drawable ic_arrow_back_black_24 0x7f0800af
@@ -2946,6 +2955,8 @@ int drawable ic_step 0x7f0800ce
 int drawable ic_twitter 0x7f0800cf
 int drawable ic_wage 0x7f0800d0
 int drawable ic_weight 0x7f0800d1
+int drawable jumpin 0x7f080132
+int drawable jumpingjack 0x7f080133
 int drawable loginbackground 0x7f0800d2
 int drawable logo 0x7f0800d3
 int drawable lungsquat 0x7f0800d4
@@ -2972,6 +2983,7 @@ int drawable material_ic_keyboard_arrow_previous_black_24dp 0x7f0800e8
 int drawable material_ic_keyboard_arrow_right_black_24dp 0x7f0800e9
 int drawable material_ic_menu_arrow_down_black_24dp 0x7f0800ea
 int drawable material_ic_menu_arrow_up_black_24dp 0x7f0800eb
+int drawable mountain_climbers 0x7f08013a
 int drawable mtrl_bottomsheet_drag_handle 0x7f0800ec
 int drawable mtrl_checkbox_button 0x7f0800ed
 int drawable mtrl_checkbox_button_checked_unchecked 0x7f0800ee
@@ -3029,7 +3041,10 @@ int drawable password_icon_focused 0x7f080121
 int drawable profile 0x7f080122
 int drawable progress 0x7f080123
 int drawable protein 0x7f080124
+int drawable pushup 0x7f08013b
 int drawable running 0x7f080125
+int drawable shadoweffect 0x7f080131
+int drawable shouldertaps 0x7f08013c
 int drawable shrub 0x7f080126
 int drawable sports 0x7f080127
 int drawable sprint 0x7f080128
@@ -3160,6 +3175,8 @@ int id buttonPanel 0x7f0a006a
 int id cancel_button 0x7f0a006b
 int id cardView5 0x7f0a006c
 int id cardio 0x7f0a006d
+int id cardio_card 0x7f0a0215
+int id cardiostart 0x7f0a0219
 int id center 0x7f0a006e
 int id centerCrop 0x7f0a006f
 int id centerInside 0x7f0a0070
@@ -3287,6 +3304,7 @@ int id inward 0x7f0a00e8
 int id is_pooling_container_tag 0x7f0a00e9
 int id italic 0x7f0a00ea
 int id item_touch_helper_previous_elevation 0x7f0a00eb
+int id ivVideo 0x7f0a0224
 int id jumpToEnd 0x7f0a00ec
 int id jumpToStart 0x7f0a00ed
 int id labeled 0x7f0a00ee
@@ -3301,6 +3319,8 @@ int id lineChart 0x7f0a00f6
 int id linear 0x7f0a00f7
 int id listMode 0x7f0a00f8
 int id list_item 0x7f0a00f9
+int id llExerciseView 0x7f0a021b
+int id llRestView 0x7f0a021c
 int id logInLayout 0x7f0a00fa
 int id login_button 0x7f0a00fb
 int id logout_button 0x7f0a00fc
@@ -3398,9 +3418,11 @@ int id password_toggle 0x7f0a0157
 int id passwords 0x7f0a0158
 int id path 0x7f0a0159
 int id pathRelative 0x7f0a015a
+int id pause 0x7f0a0222
 int id peekHeight 0x7f0a015b
 int id percent 0x7f0a015c
 int id pin 0x7f0a015d
+int id play 0x7f0a0223
 int id pooling_container_listener_holder_tag 0x7f0a015e
 int id position 0x7f0a015f
 int id postLayout 0x7f0a0160
@@ -3408,6 +3430,7 @@ int id pressed 0x7f0a0161
 int id profile 0x7f0a0162
 int id progress 0x7f0a0163
 int id progressBar 0x7f0a0164
+int id progressBarExercise 0x7f0a021d
 int id progress_circular 0x7f0a0165
 int id progress_horizontal 0x7f0a0166
 int id radio 0x7f0a0167
@@ -3556,8 +3579,12 @@ int id tv1 0x7f0a01f5
 int id tvContent 0x7f0a01f6
 int id tvDate 0x7f0a01f7
 int id tvDistanceCovered 0x7f0a01f8
+int id tvExerciseName 0x7f0a021e
+int id tvExerciseTimer 0x7f0a021f
 int id tvName 0x7f0a01f9
 int id tvStepCount 0x7f0a01fa
+int id tvTimer 0x7f0a0220
+int id tvUpcomingExerciseName 0x7f0a0221
 int id unchecked 0x7f0a01fb
 int id uniform 0x7f0a01fc
 int id unlabeled 0x7f0a01fd
@@ -3699,6 +3726,7 @@ int layout abc_select_dialog_material 0x7f0d001a
 int layout abc_tooltip 0x7f0d001b
 int layout browser_actions_context_menu_page 0x7f0d001c
 int layout browser_actions_context_menu_row 0x7f0d001d
+int layout cardioex 0x7f0d0077
 int layout custom_dialog 0x7f0d001e
 int layout dashboard 0x7f0d001f
 int layout design_bottom_navigation_item 0x7f0d0020
@@ -3716,6 +3744,7 @@ int layout design_navigation_menu 0x7f0d002b
 int layout design_navigation_menu_item 0x7f0d002c
 int layout design_text_input_end_icon 0x7f0d002d
 int layout design_text_input_start_icon 0x7f0d002e
+int layout ex_details 0x7f0d0078
 int layout fragment_home 0x7f0d002f
 int layout fragment_profile 0x7f0d0030
 int layout fragment_progress 0x7f0d0031
@@ -3792,7 +3821,16 @@ int menu bottom_navigation_menu 0x7f0f0000
 int mipmap ic_launcher 0x7f100000
 int mipmap ic_launcher_round 0x7f100001
 int plurals mtrl_badge_content_description 0x7f110000
+int raw armroll 0x7f120002
+int raw burpee 0x7f120003
+int raw buttkicker 0x7f120004
 int raw firebase_common_keep 0x7f120000
+int raw highknees 0x7f120001
+int raw jumpingjack 0x7f120005
+int raw kneelpushup 0x7f120006
+int raw mountainclimbing 0x7f120007
+int raw shouldertaps 0x7f120008
+int raw squatjump 0x7f120009
 int string abc_action_bar_home_description 0x7f130000
 int string abc_action_bar_up_description 0x7f130001
 int string abc_action_menu_overflow_description 0x7f130002
@@ -4066,7 +4104,9 @@ int string time_picker_minute_suffix 0x7f13010d
 int string time_picker_minute_text_field 0x7f13010e
 int string time_picker_period_toggle_description 0x7f13010f
 int string time_picker_pm 0x7f130110
+int string title_activity_cardio_ex 0x7f130119
 int string title_activity_dashboard 0x7f130111
+int string title_activity_ex_details 0x7f13011a
 int string title_activity_login 0x7f130112
 int string title_activity_new 0x7f130113
 int string title_activity_signup 0x7f130114
