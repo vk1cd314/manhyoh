@@ -1343,6 +1343,7 @@ color highlighted_text_material_dark
 color highlighted_text_material_light
 color hunterGreen
 color lightTeal
+color lighter_green
 color m3_appbar_overlay_color
 color m3_assist_chip_icon_tint_color
 color m3_assist_chip_stroke_color
@@ -2865,11 +2866,15 @@ drawable avd_show_password
 drawable background_score
 drawable baseline_access_time_24
 drawable baseline_arrow_back_24
+drawable baseline_clear_24
+drawable baseline_directions_walk_24
+drawable baseline_expand_24
 drawable baseline_home_24
 drawable baseline_local_fire_department_24
 drawable baseline_moving_24
 drawable baseline_person_outline_24
 drawable baseline_play_arrow_24
+drawable baseline_speed_24
 drawable boy_girl_running
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -3173,6 +3178,7 @@ id browser_actions_menu_items
 id browser_actions_menu_view
 id btnSignIn
 id buttonPanel
+id cancelButton
 id cancel_button
 id cardView5
 id cardio
@@ -3445,6 +3451,7 @@ id right_icon
 id right_side
 id rounded
 id row_index_key
+id saveButton
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -3493,6 +3500,7 @@ id singUpLayout
 id skipCollapsed
 id sleepTV
 id slide
+id slider
 id snackbar_action
 id snackbar_text
 id snap
@@ -3583,9 +3591,11 @@ id tvDistanceCovered
 id tvExerciseName
 id tvExerciseTimer
 id tvName
+id tvNo
 id tvStepCount
 id tvTimer
 id tvUpcomingExerciseName
+id tvYes
 id unchecked
 id uniform
 id unlabeled
@@ -3729,6 +3739,7 @@ layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout cardioex
 layout custom_dialog
+layout custom_dialog_for_exit
 layout dashboard
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -3746,6 +3757,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout ex_details
+layout fragment_dialog
 layout fragment_home
 layout fragment_profile
 layout fragment_progress
