@@ -267,6 +267,10 @@ attr chipSurfaceColor
 attr circleCrop
 attr circleRadius
 attr circularProgressIndicatorStyle
+attr civ_border_color
+attr civ_border_overlay
+attr civ_border_width
+attr civ_circle_background_color
 attr clickAction
 attr clockFaceBackgroundColor
 attr clockHandColor
@@ -1268,8 +1272,11 @@ color browser_actions_bg_grey
 color browser_actions_divider_color
 color browser_actions_text_color
 color browser_actions_title_color
+color button_focused
 color button_material_dark
 color button_material_light
+color button_normal
+color button_pressed
 color call_notification_answer_color
 color call_notification_decline_color
 color cardview_dark_background
@@ -2865,6 +2872,7 @@ drawable avd_show_password
 drawable background_score
 drawable baseline_access_time_24
 drawable baseline_arrow_back_24
+drawable baseline_co_present_24
 drawable baseline_home_24
 drawable baseline_local_fire_department_24
 drawable baseline_moving_24
@@ -2881,6 +2889,7 @@ drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable burpee
 drawable buttkick
+drawable button_selector
 drawable cardio
 drawable cardio_cover
 drawable circular_progress_bar
@@ -3173,6 +3182,7 @@ id browser_actions_menu_items
 id browser_actions_menu_view
 id btnSignIn
 id buttonPanel
+id cancelButton
 id cancel_button
 id cardView5
 id cardio
@@ -3385,6 +3395,7 @@ id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
 id name
+id nameEditText
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view
@@ -3429,6 +3440,7 @@ id position
 id postLayout
 id pressed
 id profile
+id profileImageView
 id progress
 id progressBar
 id progressBarExercise
@@ -3445,6 +3457,7 @@ id right_icon
 id right_side
 id rounded
 id row_index_key
+id saveButton
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -3745,6 +3758,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dialog_edit_profile
 layout ex_details
 layout fragment_home
 layout fragment_profile
@@ -4407,6 +4421,7 @@ style DialogWindowTheme
 style DiamondCut
 style FloatingDialogTheme
 style FloatingDialogWindowTheme
+style FullScreenMaterialDialog
 style MaterialAlertDialog_Material3
 style MaterialAlertDialog_Material3_Animation
 style MaterialAlertDialog_Material3_Body_Text
@@ -5262,6 +5277,7 @@ styleable CardView android_minWidth android_minHeight cardBackgroundColor cardCo
 styleable CheckedTextView android_checkMark checkMarkCompat checkMarkTint checkMarkTintMode
 styleable Chip android_textAppearance android_textSize android_textColor android_ellipsize android_maxWidth android_text android_checkable checkedIcon checkedIconEnabled checkedIconTint checkedIconVisible chipBackgroundColor chipCornerRadius chipEndPadding chipIcon chipIconEnabled chipIconSize chipIconTint chipIconVisible chipMinHeight chipMinTouchTargetSize chipStartPadding chipStrokeColor chipStrokeWidth chipSurfaceColor closeIcon closeIconEnabled closeIconEndPadding closeIconSize closeIconStartPadding closeIconTint closeIconVisible ensureMinTouchTargetSize hideMotionSpec iconEndPadding iconStartPadding rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec textEndPadding textStartPadding
 styleable ChipGroup checkedChip chipSpacing chipSpacingHorizontal chipSpacingVertical selectionRequired singleLine singleSelection
+styleable CircleImageView civ_border_color civ_border_overlay civ_border_width civ_circle_background_color
 styleable CircularProgressIndicator indicatorDirectionCircular indicatorInset indicatorSize
 styleable ClockFaceView clockFaceBackgroundColor clockNumberTextColor
 styleable ClockHandView clockHandColor materialCircleRadius selectorSize

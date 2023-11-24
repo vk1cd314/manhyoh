@@ -96,4 +96,6 @@ dependencies {
     implementation("androidx.health.connect:connect-client:1.1.0-alpha02")
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
     implementation("com.github.AnyChart:AnyChart-Android:1.1.5")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation("androidx.activity:activity-ktx:1.8.1")
 }

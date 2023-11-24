@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -49,6 +51,27 @@ class ProfileFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_profile, container, false)
 
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val editProfileButton = view.findViewById<CardView>(R.id.btnSignIn)
+        editProfileButton.setOnClickListener {
+//            val dialog = EditProfileDialogFragment()
+//            dialog.show(requireFragmentManager(), "EditProfileDialogFragment")
+            showDialog()
+        }
+    }
+
+    private fun showDialog() {
+        val fragmentManager = parentFragmentManager
+        val dialogFragment = EditProfileDialogFragment()
+        val transaction = fragmentManager.beginTransaction()
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+        transaction
+            .add(android.R.id.content, dialogFragment)
+            .addToBackStack(null)
+            .commit()
     }
 
 

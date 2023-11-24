@@ -45,5 +45,11 @@
         <item name="cornerSizeBottomLeft">75dp</item>
         <item name="cornerFamilyBottomLeft">rounded</item>
     </style>
+    <style name="FullScreenMaterialDialog" parent="Theme.MaterialComponents.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- You can add more customization items here -->
+    </style>
 
 </resources>

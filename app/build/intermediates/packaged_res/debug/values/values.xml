@@ -9,6 +9,9 @@
     </string-array>
     <color name="black">#FF000000</color>
     <color name="blueMain">#71c7d3</color>
+    <color name="button_focused">#FFBB86FC</color>
+    <color name="button_normal">#FF6200EE</color>
+    <color name="button_pressed">#FF3700B3</color>
     <color name="castGreen">#00563B</color>
     <color name="darkblue">#000080</color>
     <color name="darkishPink">#e94667</color>
@@ -68,6 +71,12 @@
     <style name="DiamondCut">
         <item name="cornerSize">75dp</item>
         <item name="cornerFamily">cut</item>
+    </style>
+    <style name="FullScreenMaterialDialog" parent="Theme.MaterialComponents.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        
     </style>
     <style name="RoundedSquare">
         <item name="cornerSize">10%</item>
