@@ -1,30 +1,25 @@
 package com.example.mahnyoh
 
 import android.app.Dialog
-import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.os.Handler
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.VideoView
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.mahnyoh.ExerciseModel
-import com.example.mahnyoh.R
-
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  * There are two timers used
@@ -49,7 +44,7 @@ class ExDetails : AppCompatActivity(), TextToSpeech.OnInitListener {
 
 
     //TO DO: change the exerciseTimerDuration from 2 to 30 seconds after testing
-    private var exerciseTimerDuration : Long = 30
+    private var exerciseTimerDuration : Long = 45
     private var exerciseList: ArrayList<ExerciseModel>?=null
     private var currentExercisePosition = -1
 
@@ -158,10 +153,11 @@ class ExDetails : AppCompatActivity(), TextToSpeech.OnInitListener {
                     //exerciseAdapter!!.notifyDataSetChanged()
                     setupRestView()
                 }else{
+
+                    customDialogForFinish()
+
                     //  Call this when exercises activity is done and should be closed.
-                    finish()
-                    val intent = Intent(this@ExDetails, CardioEx::class.java)
-                    startActivity(intent)
+                   // finish()
                 }
 
 
@@ -267,6 +263,10 @@ class ExDetails : AppCompatActivity(), TextToSpeech.OnInitListener {
         tts!!.speak(text, TextToSpeech.QUEUE_FLUSH,null,"")
     }
 
+
+
+
+
     /* private fun setupExerciseStatusRecyclerView(){
           val rvExerciseStatus=findViewById<RecyclerView>(R.id.rvExerciseStatus)
          rvExerciseStatus.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
@@ -274,22 +274,62 @@ class ExDetails : AppCompatActivity(), TextToSpeech.OnInitListener {
          rvExerciseStatus.adapter = exerciseAdapter
      }*/
 
- /*   private fun customDialogForBackButton(){
+    private fun customDialogForBackButton() {
         val customDialog = Dialog(this)
 
+        // Set the content view for the dialog
         customDialog.setContentView(R.layout.custom_dialog_for_exit)
-        val tvYes=findViewById<Button>(R.id.tvYes)
-        val tvNo= findViewById<Button>(R.id.tvNo)
-        tvYes.setOnClickListener{
+
+        // Find the Buttons within the dialog's layout
+        val tvYes = customDialog.findViewById<Button>(R.id.tvYes)
+        val tvNo = customDialog.findViewById<Button>(R.id.tvNo)
+
+        // Set click listeners for the buttons
+        tvYes.setOnClickListener {
             finish()
             customDialog.dismiss()
         }
 
-        tvNo.setOnClickListener{
+        tvNo.setOnClickListener {
             customDialog.dismiss()
         }
+
+        // Show the dialog
         customDialog.show()
     }
-    */
+
+
+    private fun customDialogForFinish() {
+        val customDialog = Dialog(this)
+
+        // Set the content view for the dialog to a full-screen layout
+        customDialog.setContentView(R.layout.fragment_dialog)
+
+        // Find the Buttons within the dialog's layout
+        val saveButton = customDialog.findViewById<Button>(R.id.saveButton)
+        val cancelButton = customDialog.findViewById<Button>(R.id.cancelButton)
+
+
+        // Set click listeners for the buttons
+        saveButton.setOnClickListener {
+            finish()
+            customDialog.dismiss()
+        }
+
+
+        cancelButton.setOnClickListener {
+            finish()
+            customDialog.dismiss()
+        }
+
+        // Show the dialog
+        customDialog.show()
+
+        // Set dialog width and height to match_parent after it's shown
+        val width = ViewGroup.LayoutParams.MATCH_PARENT
+        val height = ViewGroup.LayoutParams.MATCH_PARENT
+        customDialog.window?.setLayout(width, height)
+    }
+
 
 }
