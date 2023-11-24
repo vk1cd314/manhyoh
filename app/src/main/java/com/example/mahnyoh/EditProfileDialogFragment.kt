@@ -34,6 +34,7 @@ class EditProfileDialogFragment : DialogFragment() {
             pickImageFromGallery()
         }
 
+
         return view
     }
 
