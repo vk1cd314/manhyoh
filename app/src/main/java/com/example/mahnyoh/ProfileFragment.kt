@@ -1,7 +1,9 @@
 package com.example.mahnyoh
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,46 +13,24 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.findViewTreeViewModelStoreOwner
+import com.example.mahnyoh.databinding.FragmentHomeBinding
+import com.example.mahnyoh.databinding.FragmentProfileBinding
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ProfileFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-
-
+class ProfileFragment : Fragment(), ProfileUpdateListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-
-
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    private var _binding: FragmentProfileBinding? = null
+    private val binding get() = _binding!!
 
-        return inflater.inflate(R.layout.fragment_profile, container, false)
-
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -66,6 +46,7 @@ class ProfileFragment : Fragment() {
     private fun showDialog() {
         val fragmentManager = parentFragmentManager
         val dialogFragment = EditProfileDialogFragment()
+        dialogFragment.profileUpdateListener = this
         val transaction = fragmentManager.beginTransaction()
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
         transaction
@@ -74,7 +55,6 @@ class ProfileFragment : Fragment() {
             .commit()
     }
 
-
     override fun onStart() {
         super.onStart()
         val logout = requireActivity().findViewById<TextView>(R.id.logout_button)
@@ -82,6 +62,14 @@ class ProfileFragment : Fragment() {
             Firebase.auth.signOut()
             val intent = Intent(context, MainActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    override fun onProfileUpdated(name: String, imageUri: Uri?) {
+        Log.i("NANI", name)
+        binding.tvName.text = name
+        imageUri?.let {
+            binding.pfp.setImageURI(it)
         }
     }
 }

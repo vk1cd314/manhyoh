@@ -53,6 +53,9 @@ public final class FragmentProfileBinding implements ViewBinding {
   public final TextView logoutButton;
 
   @NonNull
+  public final AppCompatImageView pfp;
+
+  @NonNull
   public final TextView sleepTV;
 
   @NonNull
@@ -77,9 +80,10 @@ public final class FragmentProfileBinding implements ViewBinding {
       @NonNull LinearLayout ageCL, @NonNull AppCompatImageView ageIV, @NonNull TextView ageTV,
       @NonNull AppCompatImageView ageWageIV, @NonNull CardView btnSignIn,
       @NonNull AppCompatImageView editWageIV, @NonNull ConstraintLayout goalsCard,
-      @NonNull TextView goalsTV, @NonNull TextView logoutButton, @NonNull TextView sleepTV,
-      @NonNull TextView stepsTV, @NonNull TextView tvName, @NonNull TextView updateTV,
-      @NonNull LinearLayout wageCL, @NonNull AppCompatImageView wageIV, @NonNull TextView wageTV) {
+      @NonNull TextView goalsTV, @NonNull TextView logoutButton, @NonNull AppCompatImageView pfp,
+      @NonNull TextView sleepTV, @NonNull TextView stepsTV, @NonNull TextView tvName,
+      @NonNull TextView updateTV, @NonNull LinearLayout wageCL, @NonNull AppCompatImageView wageIV,
+      @NonNull TextView wageTV) {
     this.rootView = rootView;
     this.activityTV = activityTV;
     this.ageCL = ageCL;
@@ -91,6 +95,7 @@ public final class FragmentProfileBinding implements ViewBinding {
     this.goalsCard = goalsCard;
     this.goalsTV = goalsTV;
     this.logoutButton = logoutButton;
+    this.pfp = pfp;
     this.sleepTV = sleepTV;
     this.stepsTV = stepsTV;
     this.tvName = tvName;
@@ -187,6 +192,12 @@ public final class FragmentProfileBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.pfp;
+      AppCompatImageView pfp = ViewBindings.findChildViewById(rootView, id);
+      if (pfp == null) {
+        break missingId;
+      }
+
       id = R.id.sleepTV;
       TextView sleepTV = ViewBindings.findChildViewById(rootView, id);
       if (sleepTV == null) {
@@ -230,7 +241,7 @@ public final class FragmentProfileBinding implements ViewBinding {
       }
 
       return new FragmentProfileBinding((ConstraintLayout) rootView, activityTV, ageCL, ageIV,
-          ageTV, ageWageIV, btnSignIn, editWageIV, goalsCard, goalsTV, logoutButton, sleepTV,
+          ageTV, ageWageIV, btnSignIn, editWageIV, goalsCard, goalsTV, logoutButton, pfp, sleepTV,
           stepsTV, tvName, updateTV, wageCL, wageIV, wageTV);
     }
     String missingId = rootView.getResources().getResourceName(id);

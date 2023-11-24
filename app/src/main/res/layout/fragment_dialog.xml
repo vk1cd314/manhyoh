@@ -138,6 +138,7 @@
 
 
                     <TextView
+                        android:id="@+id/minspeed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Min Speed"
@@ -169,6 +170,7 @@
 
 
                     <TextView
+                        android:id="@+id/avgspeed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Avg Speed"
@@ -199,6 +201,7 @@
 
 
                     <TextView
+                        android:id="@+id/maxspeed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Max Speed"
@@ -244,6 +247,7 @@
 
 
                     <TextView
+                        android:id="@+id/stepsDialog"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="100 Steps"
@@ -277,6 +281,7 @@
                         android:layout_marginStart="10dp"
                         />
                     <TextView
+                        android:id="@+id/distanceDialog"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Distance"
@@ -390,6 +395,7 @@
             android:textColorHint="@color/white"
             android:hint="Comment On the Exercise">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/comments"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />

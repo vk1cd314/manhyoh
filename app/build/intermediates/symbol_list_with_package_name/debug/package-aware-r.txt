@@ -1350,6 +1350,7 @@ color highlighted_text_material_dark
 color highlighted_text_material_light
 color hunterGreen
 color lightTeal
+color lighter_green
 color m3_appbar_overlay_color
 color m3_assist_chip_icon_tint_color
 color m3_assist_chip_stroke_color
@@ -2872,12 +2873,16 @@ drawable avd_show_password
 drawable background_score
 drawable baseline_access_time_24
 drawable baseline_arrow_back_24
+drawable baseline_clear_24
 drawable baseline_co_present_24
+drawable baseline_directions_walk_24
+drawable baseline_expand_24
 drawable baseline_home_24
 drawable baseline_local_fire_department_24
 drawable baseline_moving_24
 drawable baseline_person_outline_24
 drawable baseline_play_arrow_24
+drawable baseline_speed_24
 drawable boy_girl_running
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -3165,6 +3170,7 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id avgspeed
 id backButton
 id balls
 id barrier
@@ -3204,6 +3210,7 @@ id clip_horizontal
 id clip_vertical
 id clockwise
 id collapseActionView
+id comments
 id compose_view_saveable_id_tag
 id compress
 id conPass
@@ -3240,6 +3247,7 @@ id disableHome
 id disablePostScroll
 id disableScroll
 id disjoint
+id distanceDialog
 id dragDown
 id dragEnd
 id dragLeft
@@ -3360,9 +3368,11 @@ id material_timepicker_ok_button
 id material_timepicker_view
 id material_value_index
 id matrix
+id maxspeed
 id message
 id middle
 id mini
+id minspeed
 id month_grid
 id month_navigation_bar
 id month_navigation_fragment_toggle
@@ -3433,6 +3443,7 @@ id pathRelative
 id pause
 id peekHeight
 id percent
+id pfp
 id pin
 id play
 id pooling_container_listener_holder_tag
@@ -3506,6 +3517,7 @@ id singUpLayout
 id skipCollapsed
 id sleepTV
 id slide
+id slider
 id snackbar_action
 id snackbar_text
 id snap
@@ -3530,6 +3542,7 @@ id startVertical
 id staticLayout
 id staticPostLayout
 id step_count_recyclerview
+id stepsDialog
 id stepsTV
 id stop
 id strength
@@ -3596,9 +3609,11 @@ id tvDistanceCovered
 id tvExerciseName
 id tvExerciseTimer
 id tvName
+id tvNo
 id tvStepCount
 id tvTimer
 id tvUpcomingExerciseName
+id tvYes
 id unchecked
 id uniform
 id unlabeled
@@ -3742,6 +3757,7 @@ layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout cardioex
 layout custom_dialog
+layout custom_dialog_for_exit
 layout dashboard
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -3760,6 +3776,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout dialog_edit_profile
 layout ex_details
+layout fragment_dialog
 layout fragment_home
 layout fragment_profile
 layout fragment_progress

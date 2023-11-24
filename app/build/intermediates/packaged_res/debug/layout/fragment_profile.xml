@@ -38,6 +38,7 @@
         app:layout_goneMarginBottom="24dp">
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/pfp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
@@ -270,7 +271,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="290dp"
         android:layout_height="60dp"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="56dp"
         android:layout_marginTop="40dp"
         app:cardCornerRadius="10dp"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,5 +1,6 @@
 package com.example.mahnyoh
 
+import ExerciseSessionData
 import android.app.Dialog
 import android.media.MediaPlayer
 import android.net.Uri
@@ -15,10 +16,23 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.VideoView
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.health.connect.client.permission.HealthPermission
+import androidx.health.connect.client.records.DistanceRecord
+import androidx.health.connect.client.records.ExerciseSessionRecord
+import androidx.health.connect.client.records.SpeedRecord
+import androidx.health.connect.client.records.StepsRecord
+import androidx.lifecycle.lifecycleScope
+import com.example.mahnyoh.data.HealthConnectManager
+import kotlinx.coroutines.launch
+import org.w3c.dom.Text
+import java.time.Instant
+import java.time.temporal.ChronoUnit
 import java.util.*
 
 /**
@@ -36,7 +50,7 @@ class ExDetails : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var restProgress = 0// progress counts from 0 to 10
 
     //TO DO: change the restTimerDuration from 2 to 10 seconds after testing
-    private var restTimerDuration: Long = 10
+    private var restTimerDuration: Long = 1
 
     //variable for exercise timer
     private var exerciseTimer: CountDownTimer?=null
@@ -44,7 +58,7 @@ class ExDetails : AppCompatActivity(), TextToSpeech.OnInitListener {
 
 
     //TO DO: change the exerciseTimerDuration from 2 to 30 seconds after testing
-    private var exerciseTimerDuration : Long = 45
+    private var exerciseTimerDuration : Long = 1
     private var exerciseList: ArrayList<ExerciseModel>?=null
     private var currentExercisePosition = -1
 
@@ -54,8 +68,18 @@ class ExDetails : AppCompatActivity(), TextToSpeech.OnInitListener {
     //adding media player
     private var player: MediaPlayer? = null
 
+    private lateinit var healthConnectManager: HealthConnectManager
+    private lateinit var requestPermissionLauncher: ActivityResultLauncher<Set<String>>
 
-
+    private val permissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestMultiplePermissions()
+    ) { result ->
+        if (result.all { it.value }) {
+            Log.i("WHAAAAT", "All required permissions granted")
+        } else {
+            Log.w("WHAAAT", "Not all required permissions granted")
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,6 +92,9 @@ class ExDetails : AppCompatActivity(), TextToSpeech.OnInitListener {
         exerciseList = Constants.defaultExerciseList()
         setupRestView()
 
+        healthConnectManager = HealthConnectManager(this)
+        Log.d("WHAAAT", "Checking permissions")
+        permissionLauncher.launch(ExDetails.permissions)
         // setupExerciseStatusRecyclerView()
     }
 
@@ -256,16 +283,11 @@ class ExDetails : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
     }
 
-
     //Function is used to speak the text ie current exercise name
     private fun speakOut(text: String){
         //ignore this error: It working fine after installing the app
         tts!!.speak(text, TextToSpeech.QUEUE_FLUSH,null,"")
     }
-
-
-
-
 
     /* private fun setupExerciseStatusRecyclerView(){
           val rvExerciseStatus=findViewById<RecyclerView>(R.id.rvExerciseStatus)
@@ -298,7 +320,6 @@ class ExDetails : AppCompatActivity(), TextToSpeech.OnInitListener {
         customDialog.show()
     }
 
-
     private fun customDialogForFinish() {
         val customDialog = Dialog(this)
 
@@ -316,7 +337,6 @@ class ExDetails : AppCompatActivity(), TextToSpeech.OnInitListener {
             customDialog.dismiss()
         }
 
-
         cancelButton.setOnClickListener {
             finish()
             customDialog.dismiss()
@@ -325,11 +345,49 @@ class ExDetails : AppCompatActivity(), TextToSpeech.OnInitListener {
         // Show the dialog
         customDialog.show()
 
+//        val endTime = Instant.now()
+//        val startTime = endTime.minus(10, ChronoUnit.MINUTES)
+        lifecycleScope.launch {
+            try {
+                Log.i("Updating", "wot")
+//                val aggregatedData = healthConnectManager.aggregateHealthData(startTime, endTime)
+                var minSpeed = customDialog.findViewById<TextView>(R.id.minspeed)
+                var maxSpeed = customDialog.findViewById<TextView>(R.id.maxspeed)
+                var avgSpeed = customDialog.findViewById<TextView>(R.id.avgspeed)
+                var steps = customDialog.findViewById<TextView>(R.id.stepsDialog)
+                var distance = customDialog.findViewById<TextView>(R.id.distanceDialog)
+
+                val uids = healthConnectManager.extractSessionUIDs(Instant.now().minus(30, ChronoUnit.DAYS), Instant.now())
+                if (uids.isNotEmpty()) {
+                    val mostRecentUID = uids.first() // Assuming the list is ordered by date
+                    val aggregatedData = healthConnectManager.readSpecificSessionData(mostRecentUID)
+                    // Use the session data as needed
+                    minSpeed.text = aggregatedData.minSpeed.toString()
+                    maxSpeed.text = aggregatedData.maxSpeed.toString()
+                    avgSpeed.text = aggregatedData.avgSpeed.toString()
+                    steps.text = aggregatedData.totalSteps.toString()
+                    distance.text = aggregatedData.totalDistance.toString()
+                } else Log.i("EMPTY", "LIKE MY LIFE")
+            } catch (e: Exception) {
+                Log.e("HealthData", "Error fetching health data: ${e.message}")
+            }
+        }
+
         // Set dialog width and height to match_parent after it's shown
         val width = ViewGroup.LayoutParams.MATCH_PARENT
         val height = ViewGroup.LayoutParams.MATCH_PARENT
         customDialog.window?.setLayout(width, height)
     }
 
-
+    companion object {
+        private val permissions = arrayOf(
+            HealthPermission.getReadPermission(StepsRecord::class),
+            HealthPermission.getReadPermission(DistanceRecord::class),
+            HealthPermission.getReadPermission(SpeedRecord::class),
+            HealthPermission.getReadPermission(ExerciseSessionRecord::class)
+        )
+    }
+//    SpeedRecord::class,
+//    DistanceRecord::class,
+//    StepsRecord::class,
 }

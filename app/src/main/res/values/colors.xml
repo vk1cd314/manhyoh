@@ -25,5 +25,5 @@
     <color name="button_normal">#FF6200EE</color> <!-- A deep purple color -->
     <color name="button_pressed">#FF3700B3</color> <!-- A darker shade for pressed state -->
     <color name="button_focused">#FFBB86FC</color> <!-- A lighter shade for focused state -->
-
+    <color name="lighter_green">#3B6346</color>
 </resources>

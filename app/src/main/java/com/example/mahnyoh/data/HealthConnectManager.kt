@@ -31,9 +31,7 @@ import androidx.health.connect.client.units.Energy
 import androidx.health.connect.client.units.Length
 import androidx.health.connect.client.units.Mass
 import androidx.health.connect.client.units.Velocity
-import com.anychart.chart.common.dataentry.DataEntry
 import com.example.mahnyoh.R
-import com.example.mahnyoh.StepsActivity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.io.IOException
@@ -274,6 +272,51 @@ class HealthConnectManager(private val context: Context) {
             healthConnectClient.deleteRecords(rawType, timeRangeFilter)
         }
     }
+
+    suspend fun aggregateHealthData(start: Instant, end: Instant): AggregatedHealthData {
+        val timeRangeFilter = TimeRangeFilter.between(start, end)
+
+        val speedMetrics = setOf(SpeedRecord.SPEED_AVG, SpeedRecord.SPEED_MAX, SpeedRecord.SPEED_MIN)
+        val distanceMetric = setOf(DistanceRecord.DISTANCE_TOTAL)
+        val stepsMetric = setOf(StepsRecord.COUNT_TOTAL)
+
+        val speedRequest = AggregateRequest(speedMetrics, timeRangeFilter)
+        val distanceRequest = AggregateRequest(distanceMetric, timeRangeFilter)
+        val stepsRequest = AggregateRequest(stepsMetric, timeRangeFilter)
+
+        val speedResponse = healthConnectClient.aggregate(speedRequest)
+        val distanceResponse = healthConnectClient.aggregate(distanceRequest)
+        val stepsResponse = healthConnectClient.aggregate(stepsRequest)
+
+        return AggregatedHealthData(
+            avgSpeed = speedResponse[SpeedRecord.SPEED_AVG],
+            maxSpeed = speedResponse[SpeedRecord.SPEED_MAX],
+            minSpeed = speedResponse[SpeedRecord.SPEED_MIN],
+            totalDistance = distanceResponse[DistanceRecord.DISTANCE_TOTAL],
+            totalSteps = stepsResponse[StepsRecord.COUNT_TOTAL]?.toLong()
+        )
+    }
+
+    suspend fun fetchExerciseSessions(start: Instant, end: Instant): List<ExerciseSessionRecord> {
+        val request = ReadRecordsRequest(
+            recordType = ExerciseSessionRecord::class,
+            timeRangeFilter = TimeRangeFilter.between(start, end)
+        )
+
+        val response = healthConnectClient.readRecords(request)
+        return response.records
+    }
+
+    suspend fun extractSessionUIDs(start: Instant, end: Instant): List<String> {
+        val sessions = fetchExerciseSessions(start, end)
+        return sessions.map { it.metadata.id }
+    }
+
+    suspend fun readSpecificSessionData(uid: String): ExerciseSessionData {
+        // Your existing implementation of readAssociatedSessionData
+        return readAssociatedSessionData(uid)
+    }
+
 
     suspend fun readAssociatedSessionData(
         uid: String
