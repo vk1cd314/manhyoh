@@ -76,6 +76,11 @@ class HomeFragment : Fragment() {
             val intent = Intent(activity, StepsActivity::class.java)
             startActivity(intent)
         }
+        val nutritionCardView = view.findViewById<CardView>(R.id.nutritionCardView)
+        nutritionCardView.setOnClickListener {
+            val intent = Intent(activity, NutritionActivity::class.java)
+            startActivity(intent)
+        }
         healthConnectManager = HealthConnectManager(view.context)
         Log.d("WHAAAT", "Checking permissions")
         permissionLauncher.launch(permissions)

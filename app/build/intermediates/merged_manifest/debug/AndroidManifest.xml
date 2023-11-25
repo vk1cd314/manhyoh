@@ -83,6 +83,11 @@
             android:label="StepsActivity"
             android:theme="@style/Theme.MahnYoh" />
         <activity
+            android:name="com.example.mahnyoh.NutritionActivity"
+            android:exported="false"
+            android:label="NutritionActivity"
+            android:theme="@style/Theme.MahnYoh" />
+        <activity
             android:name="com.example.mahnyoh.MainActivity"
             android:exported="true"
             android:label="@string/app_name"

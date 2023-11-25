@@ -93,11 +93,11 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/editWageIV"
             android:layout_width="16dp"
-            android:layout_height="16dp"
+            android:layout_height="11dp"
             android:layout_gravity="end|top"
+            android:fontFamily="@font/montserrat_bold"
             android:foregroundGravity="center"
             android:gravity="center"
-            android:fontFamily="@font/montserrat_bold"
             android:src="@drawable/ic_edit"
             android:tint="@color/white" />
 

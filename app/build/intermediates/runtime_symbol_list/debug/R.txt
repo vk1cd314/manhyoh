@@ -3160,6 +3160,7 @@ int id action_mode_bar_stub 0x7f0a003f
 int id action_mode_close_button 0x7f0a0040
 int id action_text 0x7f0a0041
 int id actions 0x7f0a0042
+int id activityGoalEditText 0x7f0a0235
 int id activityTV 0x7f0a0043
 int id activity_chooser_view_content 0x7f0a0044
 int id add 0x7f0a0045
@@ -3167,6 +3168,7 @@ int id adjust_height 0x7f0a0046
 int id adjust_width 0x7f0a0047
 int id ageCL 0x7f0a0048
 int id ageIV 0x7f0a0049
+int id ageInputEditText 0x7f0a0234
 int id ageTV 0x7f0a004a
 int id ageWageIV 0x7f0a004b
 int id alertTitle 0x7f0a004c
@@ -3532,6 +3534,7 @@ int id signup_button 0x7f0a01b3
 int id sin 0x7f0a01b4
 int id singUpLayout 0x7f0a01b5
 int id skipCollapsed 0x7f0a01b6
+int id sleepGoalEditText 0x7f0a0236
 int id sleepTV 0x7f0a01b7
 int id slide 0x7f0a01b8
 int id slider 0x7f0a01b9
@@ -3558,6 +3561,7 @@ int id startToEnd 0x7f0a01cd
 int id startVertical 0x7f0a01ce
 int id staticLayout 0x7f0a01cf
 int id staticPostLayout 0x7f0a01d0
+int id stepCountGoalEditText 0x7f0a0237
 int id step_count_recyclerview 0x7f0a01d1
 int id stepsDialog 0x7f0a01d2
 int id stepsTV 0x7f0a01d3
@@ -3649,6 +3653,7 @@ int id wageCL 0x7f0a0228
 int id wageIV 0x7f0a0229
 int id wageTV 0x7f0a022a
 int id web_view 0x7f0a022b
+int id weightInputEditText 0x7f0a0233
 int id wide 0x7f0a022c
 int id withText 0x7f0a022d
 int id with_icon 0x7f0a022e
@@ -3791,7 +3796,10 @@ int layout design_navigation_menu 0x7f0d002d
 int layout design_navigation_menu_item 0x7f0d002e
 int layout design_text_input_end_icon 0x7f0d002f
 int layout design_text_input_start_icon 0x7f0d0030
+int layout dialog_age_input 0x7f0d007d
 int layout dialog_edit_profile 0x7f0d0031
+int layout dialog_goals_input 0x7f0d007e
+int layout dialog_weight_input 0x7f0d007c
 int layout ex_details 0x7f0d0032
 int layout fragment_dialog 0x7f0d0033
 int layout fragment_home 0x7f0d0034

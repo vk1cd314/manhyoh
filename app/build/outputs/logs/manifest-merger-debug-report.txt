@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:2:1-107:12
-INJECTED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:2:1-107:12
-INJECTED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:2:1-107:12
-INJECTED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:2:1-107:12
+ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:2:1-112:12
+INJECTED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:2:1-112:12
+INJECTED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:2:1-112:12
+INJECTED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:2:1-112:12
 MERGED from [androidx.databinding:databinding-adapters:8.1.2] /home/muhnay/.gradle/caches/transforms-3/cb209f0e87b782647345f7caea635f77/transformed/databinding-adapters-8.1.2/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.databinding:databinding-ktx:8.1.2] /home/muhnay/.gradle/caches/transforms-3/0676c21aef49db7e83c80b0f31678ad1/transformed/databinding-ktx-8.1.2/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.databinding:databinding-runtime:8.1.2] /home/muhnay/.gradle/caches/transforms-3/e5bd37ba9c0ec76b388e22ddd45f0dc0/transformed/databinding-runtime-8.1.2/AndroidManifest.xml:2:1-7:12
@@ -199,8 +199,8 @@ ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManife
 	android:name
 		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:32:21-85
 application
-ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:36:5-105:19
-INJECTED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:36:5-105:19
+ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:36:5-110:19
+INJECTED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:36:5-110:19
 MERGED from [androidx.health.connect:connect-client:1.1.0-alpha02] /home/muhnay/.gradle/caches/transforms-3/8aa151bc67780a0e7ea8f0ffbad596b9/transformed/connect-client-1.1.0-alpha02/AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.health.connect:connect-client:1.1.0-alpha02] /home/muhnay/.gradle/caches/transforms-3/8aa151bc67780a0e7ea8f0ffbad596b9/transformed/connect-client-1.1.0-alpha02/AndroidManifest.xml:23:5-33:19
 MERGED from [com.google.android.material:material:1.9.0] /home/muhnay/.gradle/caches/transforms-3/608a8ac28a68c8ecb7018c6aaeb1e3b4/transformed/material-1.9.0/AndroidManifest.xml:24:5-20
@@ -331,38 +331,48 @@ ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManife
 		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:70:13-49
 	android:name
 		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:67:13-42
-activity#com.example.mahnyoh.MainActivity
-ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:71:9-104:20
+activity#com.example.mahnyoh.NutritionActivity
+ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:71:9-75:15
 	android:label
-		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:74:13-45
+		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:73:13-46
 	android:exported
-		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:73:13-36
+		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:72:13-37
 	android:theme
-		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:75:13-49
+		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:74:13-49
 	android:name
-		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:72:13-41
+		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:71:19-52
+activity#com.example.mahnyoh.MainActivity
+ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:76:9-109:20
+	android:label
+		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:79:13-45
+	android:exported
+		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:78:13-36
+	android:theme
+		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:80:13-49
+	android:name
+		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:77:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:76:13-80:29
+ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:81:13-85:29
 action#android.intent.action.MAIN
-ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:77:17-69
+ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:82:17-69
 	android:name
-		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:77:25-66
+		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:82:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:79:17-77
+ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:84:17-77
 	android:name
-		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:79:27-74
+		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:84:27-74
 intent-filter#action:name:androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE
-ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:94:13-96:29
+ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:99:13-101:29
 intent-filter#action:name:android.intent.action.VIEW_PERMISSION_USAGE+category:name:android.intent.category.HEALTH_PERMISSIONS
-ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:99:13-103:29
+ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:104:13-108:29
 action#android.intent.action.VIEW_PERMISSION_USAGE
-ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:100:17-86
+ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:105:17-86
 	android:name
-		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:100:25-83
+		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:105:25-83
 category#android.intent.category.HEALTH_PERMISSIONS
-ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:102:17-87
+ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:107:17-87
 	android:name
-		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:102:27-84
+		ADDED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml:107:27-84
 uses-sdk
 INJECTED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/muhnay/AndroidStudioProjects/manhyoh/app/src/main/AndroidManifest.xml

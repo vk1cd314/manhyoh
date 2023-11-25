@@ -3161,6 +3161,7 @@ id action_mode_bar_stub
 id action_mode_close_button
 id action_text
 id actions
+id activityGoalEditText
 id activityTV
 id activity_chooser_view_content
 id add
@@ -3168,6 +3169,7 @@ id adjust_height
 id adjust_width
 id ageCL
 id ageIV
+id ageInputEditText
 id ageTV
 id ageWageIV
 id alertTitle
@@ -3533,6 +3535,7 @@ id signup_button
 id sin
 id singUpLayout
 id skipCollapsed
+id sleepGoalEditText
 id sleepTV
 id slide
 id slider
@@ -3559,6 +3562,7 @@ id startToEnd
 id startVertical
 id staticLayout
 id staticPostLayout
+id stepCountGoalEditText
 id step_count_recyclerview
 id stepsDialog
 id stepsTV
@@ -3650,6 +3654,7 @@ id wageCL
 id wageIV
 id wageTV
 id web_view
+id weightInputEditText
 id wide
 id withText
 id with_icon
@@ -3792,7 +3797,10 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dialog_age_input
 layout dialog_edit_profile
+layout dialog_goals_input
+layout dialog_weight_input
 layout ex_details
 layout fragment_dialog
 layout fragment_home
