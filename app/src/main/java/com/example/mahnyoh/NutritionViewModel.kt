@@ -1,8 +1,24 @@
 package com.example.mahnyoh
 
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
 class NutritionViewModel : ViewModel() {
-    // Add LiveData and functions to handle nutrition data here
-    // Example: LiveData for weight, height, age, calorie intake, etc.
+    private val _protein = MutableStateFlow(0f)
+    val protein: StateFlow<Float> = _protein
+
+    private val _carbs = MutableStateFlow(0f)
+    val carbs: StateFlow<Float> = _carbs
+
+    private val _fats = MutableStateFlow(0f)
+    val fats: StateFlow<Float> = _fats
+
+    // Method to update the values
+    fun updateNutritionValues(newProtein: Float, newCarbs: Float, newFats: Float) {
+        _protein.value = newProtein
+        _carbs.value = newCarbs
+        _fats.value = newFats
+    }
+
 }
