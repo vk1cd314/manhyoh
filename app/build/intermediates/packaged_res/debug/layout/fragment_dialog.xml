@@ -15,9 +15,12 @@
         android:background="@color/hunterGreen">
 
 
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
+
 
             <ImageView
                 android:layout_width="match_parent"
@@ -380,10 +383,11 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/grey"
+            android:background="@color/lighter_green"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:padding="8dp"
+            android:textColorHint="@color/white"
             android:hint="Comment On the Exercise">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"

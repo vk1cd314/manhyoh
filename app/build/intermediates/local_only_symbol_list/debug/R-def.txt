@@ -145,10 +145,12 @@ id password
 id passwords
 id pause
 id play
+id playRest
 id profile
 id progress
 id progressBar
 id progressBarExercise
+id restPause
 id saveButton
 id signup
 id signup_button

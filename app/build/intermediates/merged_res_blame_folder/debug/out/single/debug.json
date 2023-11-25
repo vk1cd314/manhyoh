@@ -84,10 +84,6 @@
         "source": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-main-70:/font/roboto_light.ttf"
     },
     {
-        "merged": "com.example.mahnyoh.app-merged_res-68:/layout_fragment_dialog.xml.flat",
-        "source": "com.example.mahnyoh.app-main-70:/layout/fragment_dialog.xml"
-    },
-    {
         "merged": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-merged_res-68:/menu_bottom_navigation_menu.xml.flat",
         "source": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-main-70:/menu/bottom_navigation_menu.xml"
     },
@@ -152,12 +148,16 @@
         "source": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-main-70:/drawable/baseline_access_time_24.xml"
     },
     {
+        "merged": "com.example.mahnyoh.app-merged_res-68:/layout_ex_details.xml.flat",
+        "source": "com.example.mahnyoh.app-main-70:/layout/ex_details.xml"
+    },
+    {
         "merged": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-merged_res-68:/drawable_mountain_climbers.jpg.flat",
         "source": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-main-70:/drawable/mountain_climbers.jpg"
     },
     {
-        "merged": "com.example.mahnyoh.app-merged_res-68:/drawable_baseline_directions_walk_24.xml.flat",
-        "source": "com.example.mahnyoh.app-main-70:/drawable/baseline_directions_walk_24.xml"
+        "merged": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-merged_res-68:/drawable_baseline_expand_24.xml.flat",
+        "source": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-main-70:/drawable/baseline_expand_24.xml"
     },
     {
         "merged": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-merged_res-68:/drawable_baseline_person_outline_24.xml.flat",
@@ -202,10 +202,6 @@
     {
         "merged": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-merged_res-68:/drawable_background_score.xml.flat",
         "source": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-main-70:/drawable/background_score.xml"
-    },
-    {
-        "merged": "com.example.mahnyoh.app-merged_res-68:/drawable_baseline_expand_24.xml.flat",
-        "source": "com.example.mahnyoh.app-main-70:/drawable/baseline_expand_24.xml"
     },
     {
         "merged": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-merged_res-68:/drawable_forest.png.flat",
@@ -370,6 +366,10 @@
     {
         "merged": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-merged_res-68:/drawable_logo.png.flat",
         "source": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-main-70:/drawable/logo.png"
+    },
+    {
+        "merged": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-merged_res-68:/drawable_baseline_directions_walk_24.xml.flat",
+        "source": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-main-70:/drawable/baseline_directions_walk_24.xml"
     },
     {
         "merged": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-merged_res-68:/drawable_custom_profile.xml.flat",

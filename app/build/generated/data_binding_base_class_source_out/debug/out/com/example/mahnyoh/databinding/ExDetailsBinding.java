@@ -39,10 +39,16 @@ public final class ExDetailsBinding implements ViewBinding {
   public final ImageView play;
 
   @NonNull
+  public final ImageView playRest;
+
+  @NonNull
   public final ProgressBar progressBar;
 
   @NonNull
   public final ProgressBar progressBarExercise;
+
+  @NonNull
+  public final LinearLayout restPause;
 
   @NonNull
   public final TextView tvExerciseName;
@@ -58,8 +64,9 @@ public final class ExDetailsBinding implements ViewBinding {
 
   private ExDetailsBinding(@NonNull RelativeLayout rootView, @NonNull VideoView ivVideo,
       @NonNull LinearLayout llExerciseView, @NonNull LinearLayout llRestView,
-      @NonNull LinearLayout pause, @NonNull ImageView play, @NonNull ProgressBar progressBar,
-      @NonNull ProgressBar progressBarExercise, @NonNull TextView tvExerciseName,
+      @NonNull LinearLayout pause, @NonNull ImageView play, @NonNull ImageView playRest,
+      @NonNull ProgressBar progressBar, @NonNull ProgressBar progressBarExercise,
+      @NonNull LinearLayout restPause, @NonNull TextView tvExerciseName,
       @NonNull TextView tvExerciseTimer, @NonNull TextView tvTimer,
       @NonNull TextView tvUpcomingExerciseName) {
     this.rootView = rootView;
@@ -68,8 +75,10 @@ public final class ExDetailsBinding implements ViewBinding {
     this.llRestView = llRestView;
     this.pause = pause;
     this.play = play;
+    this.playRest = playRest;
     this.progressBar = progressBar;
     this.progressBarExercise = progressBarExercise;
+    this.restPause = restPause;
     this.tvExerciseName = tvExerciseName;
     this.tvExerciseTimer = tvExerciseTimer;
     this.tvTimer = tvTimer;
@@ -133,6 +142,12 @@ public final class ExDetailsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.playRest;
+      ImageView playRest = ViewBindings.findChildViewById(rootView, id);
+      if (playRest == null) {
+        break missingId;
+      }
+
       id = R.id.progressBar;
       ProgressBar progressBar = ViewBindings.findChildViewById(rootView, id);
       if (progressBar == null) {
@@ -142,6 +157,12 @@ public final class ExDetailsBinding implements ViewBinding {
       id = R.id.progressBarExercise;
       ProgressBar progressBarExercise = ViewBindings.findChildViewById(rootView, id);
       if (progressBarExercise == null) {
+        break missingId;
+      }
+
+      id = R.id.restPause;
+      LinearLayout restPause = ViewBindings.findChildViewById(rootView, id);
+      if (restPause == null) {
         break missingId;
       }
 
@@ -170,8 +191,8 @@ public final class ExDetailsBinding implements ViewBinding {
       }
 
       return new ExDetailsBinding((RelativeLayout) rootView, ivVideo, llExerciseView, llRestView,
-          pause, play, progressBar, progressBarExercise, tvExerciseName, tvExerciseTimer, tvTimer,
-          tvUpcomingExerciseName);
+          pause, play, playRest, progressBar, progressBarExercise, restPause, tvExerciseName,
+          tvExerciseTimer, tvTimer, tvUpcomingExerciseName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

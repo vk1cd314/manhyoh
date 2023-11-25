@@ -3429,6 +3429,7 @@ int id peekHeight 0x7f0a0162
 int id percent 0x7f0a0163
 int id pin 0x7f0a0164
 int id play 0x7f0a0165
+int id playRest 0x7f0a0227
 int id pooling_container_listener_holder_tag 0x7f0a0166
 int id position 0x7f0a0167
 int id postLayout 0x7f0a0168
@@ -3443,6 +3444,7 @@ int id radio 0x7f0a0170
 int id ratio 0x7f0a0171
 int id rectangles 0x7f0a0172
 int id report_drawn 0x7f0a0173
+int id restPause 0x7f0a0226
 int id reverseSawtooth 0x7f0a0174
 int id right 0x7f0a0175
 int id rightToLeft 0x7f0a0176

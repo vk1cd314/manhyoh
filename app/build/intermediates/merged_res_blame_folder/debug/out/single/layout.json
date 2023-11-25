@@ -44,12 +44,12 @@
         "source": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-main-70:/layout/fragment_dialog.xml"
     },
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-67:/layout/fragment_dialog.xml",
-        "source": "com.example.mahnyoh.app-main-70:/layout/fragment_dialog.xml"
-    },
-    {
         "merged": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-mergeDebugResources-67:/layout/marker_view.xml",
         "source": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-main-70:/layout/marker_view.xml"
+    },
+    {
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-67:/layout/ex_details.xml",
+        "source": "com.example.mahnyoh.app-main-70:/layout/ex_details.xml"
     },
     {
         "merged": "/home/sayem/.gradle/daemon/8.3/com.example.mahnyoh.app-mergeDebugResources-67:/layout/fragment_progress.xml",
