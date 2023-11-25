@@ -1,74 +1,86 @@
 [
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-68:/layout/signup.xml",
-        "source": "com.example.mahnyoh.app-main-71:/layout/signup.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/cardioex.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/cardioex.xml"
     },
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-68:/layout/step_activity.xml",
-        "source": "com.example.mahnyoh.app-main-71:/layout/step_activity.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/dialog_age_input.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/dialog_age_input.xml"
     },
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-68:/layout/fleixiblityex.xml",
-        "source": "com.example.mahnyoh.app-main-71:/layout/fleixiblityex.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/marker_view.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/marker_view.xml"
     },
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-68:/layout/fragment_profile.xml",
-        "source": "com.example.mahnyoh.app-main-71:/layout/fragment_profile.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/balancex.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/balancex.xml"
     },
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-68:/layout/fragment_dialog.xml",
-        "source": "com.example.mahnyoh.app-main-71:/layout/fragment_dialog.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/dialog_goals_input.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/dialog_goals_input.xml"
     },
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-68:/layout/step_count.xml",
-        "source": "com.example.mahnyoh.app-main-71:/layout/step_count.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/fragment_profile.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/fragment_profile.xml"
     },
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-68:/layout/strengthex.xml",
-        "source": "com.example.mahnyoh.app-main-71:/layout/strengthex.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/step_count.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/step_count.xml"
     },
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-68:/layout/cardioex.xml",
-        "source": "com.example.mahnyoh.app-main-71:/layout/cardioex.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/fleixiblityex.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/fleixiblityex.xml"
     },
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-68:/layout/login.xml",
-        "source": "com.example.mahnyoh.app-main-71:/layout/login.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/login.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/login.xml"
     },
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-68:/layout/balancex.xml",
-        "source": "com.example.mahnyoh.app-main-71:/layout/balancex.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/strengthex.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/strengthex.xml"
     },
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-68:/layout/fragment_progress.xml",
-        "source": "com.example.mahnyoh.app-main-71:/layout/fragment_progress.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/dashboard.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/dashboard.xml"
     },
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-68:/layout/dashboard.xml",
-        "source": "com.example.mahnyoh.app-main-71:/layout/dashboard.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/fragment_progress.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/fragment_progress.xml"
     },
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-68:/layout/ex_details.xml",
-        "source": "com.example.mahnyoh.app-main-71:/layout/ex_details.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/agilityex.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/agilityex.xml"
     },
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-68:/layout/dialog_edit_profile.xml",
-        "source": "com.example.mahnyoh.app-main-71:/layout/dialog_edit_profile.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/signup.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/signup.xml"
     },
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-68:/layout/fragment_home.xml",
-        "source": "com.example.mahnyoh.app-main-71:/layout/fragment_home.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/fragment_home.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/fragment_home.xml"
     },
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-68:/layout/marker_view.xml",
-        "source": "com.example.mahnyoh.app-main-71:/layout/marker_view.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/step_activity.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/step_activity.xml"
     },
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-68:/layout/custom_dialog_for_exit.xml",
-        "source": "com.example.mahnyoh.app-main-71:/layout/custom_dialog_for_exit.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/dialog_edit_profile.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/dialog_edit_profile.xml"
     },
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-68:/layout/agilityex.xml",
-        "source": "com.example.mahnyoh.app-main-71:/layout/agilityex.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/ex_details.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/ex_details.xml"
+    },
+    {
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/custom_dialog_for_exit.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/custom_dialog_for_exit.xml"
+    },
+    {
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/dialog_weight_input.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/dialog_weight_input.xml"
+    },
+    {
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/fragment_dialog.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/fragment_dialog.xml"
     }
 ]
