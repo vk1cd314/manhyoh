@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.mahnyoh.app-mergeDebugResources-67:/values-uk/values-uk.xml",
+            "outputFile": "com.example.mahnyoh.app-mergeDebugResources-72:/values-uk/values-uk.xml",
             "map": [
                 {
                     "source": "/home/sayem/.gradle/caches/transforms-3/54e6819b522d0b38ea644fea6268f7b1/transformed/play-services-base-18.2.0/res/values-uk/values.xml",

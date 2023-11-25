@@ -103,6 +103,11 @@
             android:label="StepsActivity"
             android:theme="@style/Theme.MahnYoh" />
         <activity
+            android:name="com.example.mahnyoh.NutritionActivity"
+            android:exported="false"
+            android:label="NutritionActivity"
+            android:theme="@style/Theme.MahnYoh" />
+        <activity
             android:name="com.example.mahnyoh.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
@@ -148,9 +153,6 @@
 
         <activity
             android:name="androidx.compose.ui.tooling.PreviewActivity"
-            android:exported="true" />
-        <activity
-            android:name="androidx.activity.ComponentActivity"
             android:exported="true" />
         <activity
             android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
@@ -258,6 +260,17 @@
                 android:name="androidx.profileinstaller.ProfileInstallerInitializer"
                 android:value="androidx.startup" />
         </provider>
+
+        <uses-library
+            android:name="androidx.window.extensions"
+            android:required="false" />
+        <uses-library
+            android:name="androidx.window.sidecar"
+            android:required="false" />
+
+        <activity
+            android:name="androidx.activity.ComponentActivity"
+            android:exported="true" />
 
         <receiver
             android:name="androidx.profileinstaller.ProfileInstallReceiver"

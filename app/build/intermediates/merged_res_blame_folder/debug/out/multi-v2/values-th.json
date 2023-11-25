@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.mahnyoh.app-mergeDebugResources-67:/values-th/values-th.xml",
+            "outputFile": "com.example.mahnyoh.app-mergeDebugResources-72:/values-th/values-th.xml",
             "map": [
                 {
                     "source": "/home/sayem/.gradle/caches/transforms-3/336cebc17ca88886d25fd5ca51d03fb6/transformed/material3-1.1.2/res/values-th/values-th.xml",

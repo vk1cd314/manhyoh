@@ -88,6 +88,11 @@
             android:exported="false"
             android:label="StepsActivity"
             android:theme="@style/Theme.MahnYoh" />
+        <activity android:name=".NutritionActivity"
+            android:exported="false"
+            android:label="NutritionActivity"
+            android:theme="@style/Theme.MahnYoh"
+            />
         <activity
             android:name=".MainActivity"
             android:exported="true"

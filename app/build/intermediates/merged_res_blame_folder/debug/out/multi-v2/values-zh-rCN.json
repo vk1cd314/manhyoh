@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.mahnyoh.app-mergeDebugResources-67:/values-zh-rCN/values-zh-rCN.xml",
+            "outputFile": "com.example.mahnyoh.app-mergeDebugResources-72:/values-zh-rCN/values-zh-rCN.xml",
             "map": [
                 {
                     "source": "/home/sayem/.gradle/caches/transforms-3/e11961beb714d78b0867d9b55f3a8b89/transformed/play-services-basement-18.2.0/res/values-zh-rCN/values.xml",

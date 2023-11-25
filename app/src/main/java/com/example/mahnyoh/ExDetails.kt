@@ -11,7 +11,6 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -45,22 +44,21 @@ import java.util.*
  */
 
 
-class ExDetails (exerciseName : String=""): AppCompatActivity(), TextToSpeech.OnInitListener {
+class ExDetails : AppCompatActivity(), TextToSpeech.OnInitListener {
     //variable for rest timer
     private var restTimer: CountDownTimer?=null
     private var restProgress = 0// progress counts from 0 to 10
 
     //TO DO: change the restTimerDuration from 2 to 10 seconds after testing
-    private var restTimerDuration: Long = 10
+    private var restTimerDuration: Long = 1
 
     //variable for exercise timer
-    private var exerciseTimeFixed :Long =45
     private var exerciseTimer: CountDownTimer?=null
     private var exerciseProgress = 0// progress from 0 to 30
 
 
     //TO DO: change the exerciseTimerDuration from 2 to 30 seconds after testing
-    private var exerciseTimerDuration : Long = 45
+    private var exerciseTimerDuration : Long = 1
     private var exerciseList: ArrayList<ExerciseModel>?=null
     private var currentExercisePosition = -1
 
@@ -69,21 +67,6 @@ class ExDetails (exerciseName : String=""): AppCompatActivity(), TextToSpeech.On
 
     //adding media player
     private var player: MediaPlayer? = null
-
-    private var exercisename: String? =null
-
-    private var isExercisePaused = false
-    private var isRestPaused=false
-
-    private var restView=false
-    private var exerciseview=false
-
-    // Inside ExDetails class
-    private var remainingRestTime: Long = 10
-    private var remainingExerciseTime: Long = 0
-
-
-
 
     private lateinit var healthConnectManager: HealthConnectManager
     private lateinit var requestPermissionLauncher: ActivityResultLauncher<Set<String>>
@@ -101,53 +84,23 @@ class ExDetails (exerciseName : String=""): AppCompatActivity(), TextToSpeech.On
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ex_details)
+        val actionbar = supportActionBar
 
         //adding text to speech feature
         tts = TextToSpeech(this,this)
 
-        exercisename=intent.getStringExtra("exerciseName").toString()
-        Log.e("Ki pacchi",exercisename.toString())
-        if(exercisename=="Cardio")
-        {
-            exerciseList = Constants.CardioExerciseList()
-
-        }
-
-        else if(exercisename=="Agility")
-        {
-            exerciseList = Constants.AgilityExerciseList()
-
-        }
-
-        else if(exercisename=="Strength")
-        {
-            exerciseList = Constants.StrentghExerciseList()
-
-        }
-
-        else if(exercisename=="Balance")
-        {
-            exerciseList = Constants.BalanceExerciseList()
-
-        }
-        else if(exercisename=="Flexibility")
-        {
-            exerciseList = Constants.FlexExerciseList()
-
-        }
-
+        exerciseList = Constants.defaultExerciseList()
         setupRestView()
 
-
-      healthConnectManager = HealthConnectManager(this)
+        healthConnectManager = HealthConnectManager(this)
         Log.d("WHAAAT", "Checking permissions")
-        permissionLauncher.launch(ExDetails.permissions)
-       // Log.d("checking",)
-
-
-
+        permissionLauncher.launch(permissions)
+        lifecycleScope.launch {
+            healthConnectManager.generateAndInsertMockExerciseSession()
+        }
         // setupExerciseStatusRecyclerView()
     }
+
 
     //onDestroy() is for resetting the timers and stop and shutdown the tts
     override fun onDestroy(){
@@ -172,26 +125,23 @@ class ExDetails (exerciseName : String=""): AppCompatActivity(), TextToSpeech.On
             player!!.stop()
         }
 
-        restView=false
-        exerciseview=false
-
 
         //resetting the timer
         super.onDestroy()
     }
 
     //This fun is for setting the rest timer for the user to get ready for upcoming exercise
-    private fun setRestProgressBar(duration: Long){
+    private fun setRestProgressBar(){
         val progressBar=findViewById<ProgressBar>(R.id.progressBar)
         val tvTimer=findViewById<TextView>(R.id.tvTimer)
 
         progressBar.progress = restProgress
-        restTimer = object: CountDownTimer(duration*1000, 1000){
+        restTimer = object: CountDownTimer(restTimerDuration*1000, 1000){
             //onTick() is for countdown interval
             override fun onTick(millisUntilFinished: Long) {
                 restProgress++
-                progressBar.progress = (millisUntilFinished/1000).toInt()//restTimerDuration.toInt()- restProgress
-                tvTimer.text = (millisUntilFinished/1000).toString()//(restTimerDuration.toInt()- restProgress).toString()
+                progressBar.progress = restTimerDuration.toInt() - restProgress
+                tvTimer.text = (restTimerDuration.toInt() - restProgress).toString()
             }
 
             //on finishing of the restTimer progressing the exercise timer
@@ -205,35 +155,27 @@ class ExDetails (exerciseName : String=""): AppCompatActivity(), TextToSpeech.On
                 //once the restTimer is over move to next Exercise screen
                 setupExerciseView()
             }
-        }
-        restTimer?.start()
-
-
+        }.start()
     }
 
-
     //  This function is for starting ExerciseTimer after the user is ready to do exercise
-    private fun setExerciseProgressBar(duration:Long){
+    private fun setExerciseProgressBar(){
         val progressBarExercise=findViewById<ProgressBar>(R.id.progressBarExercise)
         val tvExerciseTimer=findViewById<TextView>(R.id.tvExerciseTimer)
         progressBarExercise.progress = exerciseProgress
-
-        exerciseTimer = object: CountDownTimer(duration*1000, 1000) {
+        exerciseTimer = object: CountDownTimer(exerciseTimerDuration*1000, 1000){
             //onTick() is for the ExerciseTimer progress
             override fun onTick(millisUntilFinished: Long) {
-                Log.e("Callingtime", (millisUntilFinished/1000).toString())
                 exerciseProgress++
-                progressBarExercise.progress = (millisUntilFinished/1000).toInt()//exerciseTimeFixed.toInt() - exerciseProgress
-                tvExerciseTimer.text = (millisUntilFinished/1000).toString()//(exerciseTimeFixed.toInt() - exerciseProgress).toString()
+                progressBarExercise.progress = exerciseTimerDuration.toInt() - exerciseProgress
+                tvExerciseTimer.text = (exerciseTimerDuration.toInt() - exerciseProgress).toString()
             }
+
+            //on finishing a current exercise either move to next or to finish screen
             override fun onFinish() {
 
                 val ivImage=findViewById<VideoView>(R.id.ivVideo)
                 ivImage.visibility = View.GONE
-                remainingExerciseTime=0
-                Log.e("Finish time",exerciseTimerDuration.toString())
-
-
                 if(currentExercisePosition < exerciseList?.size!! - 1){
 
                     //if all exercise performance is not completed
@@ -244,19 +186,15 @@ class ExDetails (exerciseName : String=""): AppCompatActivity(), TextToSpeech.On
                 }else{
 
                     customDialogForFinish()
+
                     //  Call this when exercises activity is done and should be closed.
+                   // finish()
                 }
+
+
             }
-
-
-        }
-        exerciseTimer?.start()
-
-        //on finishing a current exercise either move to next or to finish screen
-
+        }.start()
     }
-
-
 
     //setting up the Rest Screen for user to get ready
     private fun setupRestView(){
@@ -271,23 +209,11 @@ class ExDetails (exerciseName : String=""): AppCompatActivity(), TextToSpeech.On
             e.printStackTrace()
         }*/
 
-        restView=true
-
-
-
-
         val llRestView=findViewById<LinearLayout>(R.id.llRestView)
         val llExerciseView =findViewById<LinearLayout>(R.id.llExerciseView)
-
-        val restPause=findViewById<LinearLayout>(R.id.restPause)
-
         //making the exercise screen invisible nad rest screen visible
         llRestView.visibility = View.VISIBLE
         llExerciseView.visibility = View.GONE
-
-        restPause.setOnClickListener{
-            RestPause()
-        }
 
 
         if(restTimer != null){
@@ -298,22 +224,16 @@ class ExDetails (exerciseName : String=""): AppCompatActivity(), TextToSpeech.On
 
         val tvUpcomingExerciseName=findViewById<TextView>(R.id.tvUpcomingExerciseName)
         tvUpcomingExerciseName.text = exerciseList!![currentExercisePosition + 1].getName()
-        setRestProgressBar(restTimerDuration)
+        setRestProgressBar()
     }
 
     //setting the exercise screen
     private fun setupExerciseView() {
 
-        exerciseview=true
-
         //visibility use
         val llRestView = findViewById<LinearLayout>(R.id.llRestView)
         val llExerciseView = findViewById<LinearLayout>(R.id.llExerciseView)
         val ivImage = findViewById<VideoView>(R.id.ivVideo)
-
-        val pause=findViewById<LinearLayout>(R.id.pause)
-        val play=findViewById<ImageView>(R.id.play)
-
 
         //
         llRestView.visibility = View.GONE
@@ -321,16 +241,7 @@ class ExDetails (exerciseName : String=""): AppCompatActivity(), TextToSpeech.On
         ivImage.visibility=View.VISIBLE
 
 
-
-        //
-
-        pause.setOnClickListener{
-            onPauseButtonClick()
-        }
-
-
-
-            if (exerciseTimer != null) {
+        if (exerciseTimer != null) {
             exerciseTimer!!.cancel()
             exerciseProgress = 0
         }
@@ -339,7 +250,7 @@ class ExDetails (exerciseName : String=""): AppCompatActivity(), TextToSpeech.On
         speakOut(exerciseList!![currentExercisePosition].getName())
 
 
-        setExerciseProgressBar(exerciseTimeFixed)
+        setExerciseProgressBar()
 
         val tvExerciseName = findViewById<TextView>(R.id.tvExerciseName)
 
@@ -389,18 +300,6 @@ class ExDetails (exerciseName : String=""): AppCompatActivity(), TextToSpeech.On
          rvExerciseStatus.adapter = exerciseAdapter
      }*/
 
-    private fun pauseVideo() {
-        val ivImage = findViewById<VideoView>(R.id.ivVideo)
-        if (ivImage.isPlaying) {
-            ivImage.pause()
-        }
-    }
-
-    // Helper function to resume video playback
-    private fun resumeVideo() {
-        val ivImage = findViewById<VideoView>(R.id.ivVideo)
-        ivImage.start()
-    }
     private fun customDialogForBackButton() {
         val customDialog = Dialog(this)
 
@@ -419,69 +318,12 @@ class ExDetails (exerciseName : String=""): AppCompatActivity(), TextToSpeech.On
 
         tvNo.setOnClickListener {
             customDialog.dismiss()
-            if(restView==true)
-            {
-                RestPause()
-            }
-
-            if(exerciseview==true)
-            {
-                onPauseButtonClick()
-            }
         }
 
         // Show the dialog
         customDialog.show()
     }
 
-
-    fun onPauseButtonClick() {
-        isExercisePaused = !isExercisePaused
-        val time=findViewById<TextView>(R.id.tvExerciseTimer)
-        val play=findViewById<ImageView>(R.id.play)
-
-        if (isExercisePaused) {
-            // If exercise is paused, store the remaining time and cancel the timer
-            time.visibility=View.GONE
-            play.visibility=View.VISIBLE
-            remainingExerciseTime=exerciseTimeFixed-exerciseProgress
-            exerciseTimer?.cancel()
-            pauseVideo()
-        } else {
-            // If exercise is resumed, start the timer with remaining time
-            //    exerciseTimerDuration=remainingExerciseTime
-
-            time.visibility=View.VISIBLE
-            play.visibility=View.GONE
-            setExerciseProgressBar(remainingExerciseTime)
-            resumeVideo()
-
-        }
-    }
-
-
-    fun RestPause() {
-        isRestPaused = !isRestPaused
-        val time=findViewById<TextView>(R.id.tvTimer)
-        val play=findViewById<ImageView>(R.id.playRest)
-
-        if (isRestPaused) {
-            // If exercise is paused, store the remaining time and cancel the timer
-            time.visibility=View.GONE
-            play.visibility=View.VISIBLE
-            remainingRestTime=restTimerDuration-restProgress
-            restTimer?.cancel()
-            pauseVideo()
-        } else {
-            // If exercise is resumed, start the timer with remaining time
-            //    exerciseTimerDuration=remainingExerciseTime
-            time.visibility=View.VISIBLE
-            play.visibility=View.GONE
-            setRestProgressBar(remainingRestTime)
-            resumeVideo()
-
-        }
-    }
     private fun customDialogForFinish() {
         val customDialog = Dialog(this)
 
@@ -509,7 +351,7 @@ class ExDetails (exerciseName : String=""): AppCompatActivity(), TextToSpeech.On
 
 //        val endTime = Instant.now()
 //        val startTime = endTime.minus(10, ChronoUnit.MINUTES)
-       lifecycleScope.launch {
+        lifecycleScope.launch {
             try {
                 Log.i("Updating", "wot")
 //                val aggregatedData = healthConnectManager.aggregateHealthData(startTime, endTime)
@@ -541,15 +383,13 @@ class ExDetails (exerciseName : String=""): AppCompatActivity(), TextToSpeech.On
         customDialog.window?.setLayout(width, height)
     }
 
-   companion object {
+    companion object {
         private val permissions = arrayOf(
             HealthPermission.getReadPermission(StepsRecord::class),
             HealthPermission.getReadPermission(DistanceRecord::class),
             HealthPermission.getReadPermission(SpeedRecord::class),
-            HealthPermission.getReadPermission(ExerciseSessionRecord::class)
+            HealthPermission.getReadPermission(ExerciseSessionRecord::class),
+            HealthPermission.getWritePermission(ExerciseSessionRecord::class)
         )
     }
-//    SpeedRecord::class,
-//    DistanceRecord::class,
-//    StepsRecord::class,
 }
