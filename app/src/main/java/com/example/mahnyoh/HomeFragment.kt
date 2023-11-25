@@ -15,6 +15,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
 import androidx.health.connect.client.permission.HealthPermission
+import androidx.health.connect.client.records.DistanceRecord
+import androidx.health.connect.client.records.ExerciseSessionRecord
+import androidx.health.connect.client.records.SpeedRecord
 import androidx.health.connect.client.records.StepsRecord
 import androidx.lifecycle.lifecycleScope
 import com.example.mahnyoh.data.HealthConnectManager
@@ -88,15 +91,44 @@ class HomeFragment : Fragment() {
 
     companion object {
         private val permissions = arrayOf(
-            HealthPermission.getReadPermission(StepsRecord::class)
+            HealthPermission.getReadPermission(StepsRecord::class),
+
+            HealthPermission.getReadPermission(DistanceRecord::class),
+            HealthPermission.getReadPermission(SpeedRecord::class),
+            HealthPermission.getReadPermission(ExerciseSessionRecord::class)
+
         )
     }
 
     override fun onStart() {
         super.onStart()
         val cardio = requireActivity().findViewById<CardView>(R.id.cardio_card)
+        val balance=requireActivity().findViewById<CardView>(R.id.balance_card)
+        val strength=requireActivity().findViewById<CardView>(R.id.strength_card)
+        val agility=requireActivity().findViewById<CardView>(R.id.agility_card)
+        val flex=requireActivity().findViewById<CardView>(R.id.flex_card)
         cardio.setOnClickListener {
             val intent = Intent(context, CardioEx::class.java)
+            startActivity(intent)
+        }
+
+        balance.setOnClickListener {
+            val intent = Intent(context, BalanceEx::class.java)
+            startActivity(intent)
+        }
+
+        strength.setOnClickListener {
+            val intent = Intent(context, StrengthEx::class.java)
+            startActivity(intent)
+        }
+
+        agility.setOnClickListener {
+            val intent = Intent(context, AgilityEx::class.java)
+            startActivity(intent)
+        }
+
+        flex.setOnClickListener {
+            val intent = Intent(context, FlexibilityEx::class.java)
             startActivity(intent)
         }
     }

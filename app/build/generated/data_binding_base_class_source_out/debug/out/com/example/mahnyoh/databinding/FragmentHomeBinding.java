@@ -29,6 +29,12 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final CardView ViewSteps;
 
   @NonNull
+  public final CardView agilityCard;
+
+  @NonNull
+  public final CardView balanceCard;
+
+  @NonNull
   public final LinearLayout balls;
 
   @NonNull
@@ -39,6 +45,9 @@ public final class FragmentHomeBinding implements ViewBinding {
 
   @NonNull
   public final CardView cardioCard;
+
+  @NonNull
+  public final CardView flexCard;
 
   @NonNull
   public final HorizontalScrollView horizontalScrollView2;
@@ -65,6 +74,9 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final ImageView strength;
 
   @NonNull
+  public final CardView strengthCard;
+
+  @NonNull
   public final ImageView stretch;
 
   @NonNull
@@ -89,20 +101,24 @@ public final class FragmentHomeBinding implements ViewBinding {
   public final TextView tv1;
 
   private FragmentHomeBinding(@NonNull ScrollView rootView, @NonNull CardView ViewSteps,
-      @NonNull LinearLayout balls, @NonNull CardView cardView5, @NonNull ImageView cardio,
-      @NonNull CardView cardioCard, @NonNull HorizontalScrollView horizontalScrollView2,
+      @NonNull CardView agilityCard, @NonNull CardView balanceCard, @NonNull LinearLayout balls,
+      @NonNull CardView cardView5, @NonNull ImageView cardio, @NonNull CardView cardioCard,
+      @NonNull CardView flexCard, @NonNull HorizontalScrollView horizontalScrollView2,
       @NonNull ShapeableImageView notifyBtnId, @NonNull TextView numberTextView,
       @NonNull CardView nutritionCardView, @NonNull ProgressBar progressBar,
       @NonNull ImageView sprint, @NonNull ImageView squat, @NonNull ImageView strength,
-      @NonNull ImageView stretch, @NonNull TextView textView, @NonNull TextView textView10,
-      @NonNull TextView textView11, @NonNull TextView textView18, @NonNull TextView textView19,
-      @NonNull TextView textViewSeeMore, @NonNull TextView tv1) {
+      @NonNull CardView strengthCard, @NonNull ImageView stretch, @NonNull TextView textView,
+      @NonNull TextView textView10, @NonNull TextView textView11, @NonNull TextView textView18,
+      @NonNull TextView textView19, @NonNull TextView textViewSeeMore, @NonNull TextView tv1) {
     this.rootView = rootView;
     this.ViewSteps = ViewSteps;
+    this.agilityCard = agilityCard;
+    this.balanceCard = balanceCard;
     this.balls = balls;
     this.cardView5 = cardView5;
     this.cardio = cardio;
     this.cardioCard = cardioCard;
+    this.flexCard = flexCard;
     this.horizontalScrollView2 = horizontalScrollView2;
     this.notifyBtnId = notifyBtnId;
     this.numberTextView = numberTextView;
@@ -111,6 +127,7 @@ public final class FragmentHomeBinding implements ViewBinding {
     this.sprint = sprint;
     this.squat = squat;
     this.strength = strength;
+    this.strengthCard = strengthCard;
     this.stretch = stretch;
     this.textView = textView;
     this.textView10 = textView10;
@@ -154,6 +171,18 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.agility_card;
+      CardView agilityCard = ViewBindings.findChildViewById(rootView, id);
+      if (agilityCard == null) {
+        break missingId;
+      }
+
+      id = R.id.balance_card;
+      CardView balanceCard = ViewBindings.findChildViewById(rootView, id);
+      if (balanceCard == null) {
+        break missingId;
+      }
+
       id = R.id.balls;
       LinearLayout balls = ViewBindings.findChildViewById(rootView, id);
       if (balls == null) {
@@ -175,6 +204,12 @@ public final class FragmentHomeBinding implements ViewBinding {
       id = R.id.cardio_card;
       CardView cardioCard = ViewBindings.findChildViewById(rootView, id);
       if (cardioCard == null) {
+        break missingId;
+      }
+
+      id = R.id.flex_card;
+      CardView flexCard = ViewBindings.findChildViewById(rootView, id);
+      if (flexCard == null) {
         break missingId;
       }
 
@@ -226,6 +261,12 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.strength_card;
+      CardView strengthCard = ViewBindings.findChildViewById(rootView, id);
+      if (strengthCard == null) {
+        break missingId;
+      }
+
       id = R.id.stretch;
       ImageView stretch = ViewBindings.findChildViewById(rootView, id);
       if (stretch == null) {
@@ -274,10 +315,10 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentHomeBinding((ScrollView) rootView, ViewSteps, balls, cardView5, cardio,
-          cardioCard, horizontalScrollView2, notifyBtnId, numberTextView, nutritionCardView,
-          progressBar, sprint, squat, strength, stretch, textView, textView10, textView11,
-          textView18, textView19, textViewSeeMore, tv1);
+      return new FragmentHomeBinding((ScrollView) rootView, ViewSteps, agilityCard, balanceCard,
+          balls, cardView5, cardio, cardioCard, flexCard, horizontalScrollView2, notifyBtnId,
+          numberTextView, nutritionCardView, progressBar, sprint, squat, strength, strengthCard,
+          stretch, textView, textView10, textView11, textView18, textView19, textViewSeeMore, tv1);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

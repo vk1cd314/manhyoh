@@ -9,10 +9,30 @@ class CardioExerciseDetailsFactory : ExerciseDetailsFactory {
     }
 }
 
-class SquatExerciseDetailsFactory : ExerciseDetailsFactory {
+class AgilityExerciseDetailsFactory : ExerciseDetailsFactory {
     override fun createExerciseDetails(): ExDetails {
-        return ExDetails("Squats")
+        return ExDetails("Agility")
     }
 }
+
+class FleixbilityExerciseDetailsFactory : ExerciseDetailsFactory {
+    override fun createExerciseDetails(): ExDetails {
+        return ExDetails("Flexibility")
+    }
+}
+
+class BalanceExerciseDetailsFactory : ExerciseDetailsFactory {
+    override fun createExerciseDetails(): ExDetails {
+        return ExDetails("Balance")
+    }
+}
+
+class StrengthExerciseDetailsFactory : ExerciseDetailsFactory {
+    override fun createExerciseDetails(): ExDetails {
+        return ExDetails("Strength")
+    }
+}
+
+
 
 // Add more factories for other exercise types

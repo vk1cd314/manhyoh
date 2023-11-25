@@ -44,6 +44,26 @@
         android:theme="@style/Theme.MahnYoh"
         tools:targetApi="31">
         <activity
+            android:name=".FlexibilityEx"
+            android:exported="false"
+            android:label="@string/title_activity_flexibility_ex"
+            android:theme="@style/Theme.MahnYoh" />
+        <activity
+            android:name=".AgilityEx"
+            android:exported="false"
+            android:label="@string/title_activity_agility_ex"
+            android:theme="@style/Theme.MahnYoh" />
+        <activity
+            android:name=".StrengthEx"
+            android:exported="false"
+            android:label="@string/title_activity_strength_ex"
+            android:theme="@style/Theme.MahnYoh" />
+        <activity
+            android:name=".BalanceEx"
+            android:exported="false"
+            android:label="@string/title_activity_balance_ex"
+            android:theme="@style/Theme.MahnYoh" />
+        <activity
             android:name=".ExDetails"
             android:exported="false"
             android:label="@string/title_activity_ex_details"

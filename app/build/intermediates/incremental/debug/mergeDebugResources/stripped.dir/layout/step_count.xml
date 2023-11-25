@@ -1,0 +1,52 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Left Side: Date and Distance -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="start">
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:textSize="14sp"
+                android:textColor="#616161"/>
+
+            <TextView
+                android:id="@+id/tvDistanceCovered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Distance Covered"
+                android:textSize="14sp"
+                android:textColor="#616161"/>
+        </LinearLayout>
+
+        <!-- Right Side: Step Count -->
+        <TextView
+            android:id="@+id/tvStepCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Step Count"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#228B22" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

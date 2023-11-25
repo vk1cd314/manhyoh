@@ -24,4 +24,8 @@
     <string name="update_lowercase">update</string>
     <string name="title_activity_cardio_ex">CardioEx</string>
     <string name="title_activity_ex_details">ExDetails</string>
+    <string name="title_activity_balance_ex">BalanceEx</string>
+    <string name="title_activity_strength_ex">StrengthEx</string>
+    <string name="title_activity_agility_ex">AgilityEx</string>
+    <string name="title_activity_flexibility_ex">FlexibilityEx</string>
 </resources>

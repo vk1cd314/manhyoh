@@ -21,6 +21,9 @@
     <uses-permission android:name="android.permission.health.READ_STEPS" />
     <uses-permission android:name="android.permission.health.READ_DISTANCE" />
     <uses-permission android:name="android.permission.health.WRITE_STEPS" />
+    <uses-permission android:name="android.permission.health.READ_SPEED" />
+    <uses-permission android:name="android.permission.health.READ_EXERCISE" />
+    <uses-permission android:name="android.permission.health.WRITE_EXERCISE" />
 
     <queries>
         <package android:name="com.google.android.apps.healthdata" />
@@ -54,6 +57,26 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.MahnYoh" >
+        <activity
+            android:name="com.example.mahnyoh.FlexibilityEx"
+            android:exported="false"
+            android:label="@string/title_activity_flexibility_ex"
+            android:theme="@style/Theme.MahnYoh" />
+        <activity
+            android:name="com.example.mahnyoh.AgilityEx"
+            android:exported="false"
+            android:label="@string/title_activity_agility_ex"
+            android:theme="@style/Theme.MahnYoh" />
+        <activity
+            android:name="com.example.mahnyoh.StrengthEx"
+            android:exported="false"
+            android:label="@string/title_activity_strength_ex"
+            android:theme="@style/Theme.MahnYoh" />
+        <activity
+            android:name="com.example.mahnyoh.BalanceEx"
+            android:exported="false"
+            android:label="@string/title_activity_balance_ex"
+            android:theme="@style/Theme.MahnYoh" />
         <activity
             android:name="com.example.mahnyoh.ExDetails"
             android:exported="false"
