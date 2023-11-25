@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.mahnyoh.app-mergeDebugResources-67:/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "com.example.mahnyoh.app-mergeDebugResources-72:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
                     "source": "/home/muhnay/.gradle/caches/transforms-3/c480f6a602e803e4904c59b910094499/transformed/play-services-auth-20.7.0/res/values-watch-v20/values.xml",

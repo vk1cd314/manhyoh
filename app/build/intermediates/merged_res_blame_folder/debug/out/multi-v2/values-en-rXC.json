@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.mahnyoh.app-mergeDebugResources-67:/values-en-rXC/values-en-rXC.xml",
+            "outputFile": "com.example.mahnyoh.app-mergeDebugResources-72:/values-en-rXC/values-en-rXC.xml",
             "map": [
                 {
                     "source": "/home/muhnay/.gradle/caches/transforms-3/336cebc17ca88886d25fd5ca51d03fb6/transformed/material3-1.1.2/res/values-en-rXC/values-en-rXC.xml",

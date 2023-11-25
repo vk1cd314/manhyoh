@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.mahnyoh.app-mergeDebugResources-67:/values-iw/values-iw.xml",
+            "outputFile": "com.example.mahnyoh.app-mergeDebugResources-72:/values-iw/values-iw.xml",
             "map": [
                 {
                     "source": "/home/muhnay/.gradle/caches/transforms-3/336cebc17ca88886d25fd5ca51d03fb6/transformed/material3-1.1.2/res/values-iw/values-iw.xml",

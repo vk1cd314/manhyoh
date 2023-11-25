@@ -188,6 +188,21 @@ class HealthConnectManager(private val context: Context) {
         return stepDataEntries.reversed() // Reverse to get the entries in chronological order
     }
 
+    suspend fun generateAndInsertMockExerciseSession() {
+        val startTime = ZonedDateTime.now().minusHours(1)
+        val endTime = ZonedDateTime.now()
+
+        val exerciseSessionRecord = ExerciseSessionRecord(
+            startTime = startTime.toInstant(),
+            startZoneOffset = startTime.offset,
+            endTime = endTime.toInstant(),
+            endZoneOffset = endTime.offset,
+            exerciseType = ExerciseSessionRecord.EXERCISE_TYPE_RUNNING,
+            title = "Mock Run"
+        )
+
+        healthConnectClient.insertRecords(listOf(exerciseSessionRecord))
+    }
 
     suspend fun hasAllPermissions(permissions: Set<String>): Boolean {
         return healthConnectClient.permissionController.getGrantedPermissions()

@@ -1,62 +1,58 @@
 [
     {
-        "merged": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-mergeDebugResources-68:/layout/dialog_edit_profile.xml",
-        "source": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-main-71:/layout/dialog_edit_profile.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/cardioex.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/cardioex.xml"
     },
     {
-        "merged": "com.example.mahnyoh.app-mergeDebugResources-68:/layout/fragment_dialog.xml",
-        "source": "com.example.mahnyoh.app-main-71:/layout/fragment_dialog.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/marker_view.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/marker_view.xml"
     },
     {
-        "merged": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-mergeDebugResources-68:/layout/fragment_dialog.xml",
-        "source": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-main-71:/layout/fragment_dialog.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/fragment_profile.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/fragment_profile.xml"
     },
     {
-        "merged": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-mergeDebugResources-68:/layout/signup.xml",
-        "source": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-main-71:/layout/signup.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/step_count.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/step_count.xml"
     },
     {
-        "merged": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-mergeDebugResources-68:/layout/marker_view.xml",
-        "source": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-main-71:/layout/marker_view.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/login.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/login.xml"
     },
     {
-        "merged": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-mergeDebugResources-68:/layout/dashboard.xml",
-        "source": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-main-71:/layout/dashboard.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/dashboard.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/dashboard.xml"
     },
     {
-        "merged": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-mergeDebugResources-68:/layout/fragment_profile.xml",
-        "source": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-main-71:/layout/fragment_profile.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/fragment_progress.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/fragment_progress.xml"
     },
     {
-        "merged": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-mergeDebugResources-68:/layout/step_activity.xml",
-        "source": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-main-71:/layout/step_activity.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/signup.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/signup.xml"
     },
     {
-        "merged": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-mergeDebugResources-68:/layout/fragment_home.xml",
-        "source": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-main-71:/layout/fragment_home.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/fragment_home.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/fragment_home.xml"
     },
     {
-        "merged": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-mergeDebugResources-68:/layout/ex_details.xml",
-        "source": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-main-71:/layout/ex_details.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/step_activity.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/step_activity.xml"
     },
     {
-        "merged": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-mergeDebugResources-68:/layout/custom_dialog_for_exit.xml",
-        "source": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-main-71:/layout/custom_dialog_for_exit.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/dialog_edit_profile.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/dialog_edit_profile.xml"
     },
     {
-        "merged": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-mergeDebugResources-68:/layout/step_count.xml",
-        "source": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-main-71:/layout/step_count.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/ex_details.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/ex_details.xml"
     },
     {
-        "merged": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-mergeDebugResources-68:/layout/login.xml",
-        "source": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-main-71:/layout/login.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/custom_dialog_for_exit.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/custom_dialog_for_exit.xml"
     },
     {
-        "merged": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-mergeDebugResources-68:/layout/cardioex.xml",
-        "source": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-main-71:/layout/cardioex.xml"
-    },
-    {
-        "merged": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-mergeDebugResources-68:/layout/fragment_progress.xml",
-        "source": "/home/muhnay/.gradle/daemon/8.3/com.example.mahnyoh.app-main-71:/layout/fragment_progress.xml"
+        "merged": "com.example.mahnyoh.app-mergeDebugResources-73:/layout/fragment_dialog.xml",
+        "source": "com.example.mahnyoh.app-main-76:/layout/fragment_dialog.xml"
     }
 ]

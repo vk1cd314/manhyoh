@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.mahnyoh.app-mergeDebugResources-67:/values-sl/values-sl.xml",
+            "outputFile": "com.example.mahnyoh.app-mergeDebugResources-72:/values-sl/values-sl.xml",
             "map": [
                 {
                     "source": "/home/muhnay/.gradle/caches/transforms-3/f1d813defdfa0bbd441dd99cf27630fa/transformed/browser-1.4.0/res/values-sl/values-sl.xml",

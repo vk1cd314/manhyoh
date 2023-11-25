@@ -94,9 +94,13 @@ class ExDetails : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         healthConnectManager = HealthConnectManager(this)
         Log.d("WHAAAT", "Checking permissions")
-        permissionLauncher.launch(ExDetails.permissions)
+        permissionLauncher.launch(permissions)
+        lifecycleScope.launch {
+            healthConnectManager.generateAndInsertMockExerciseSession()
+        }
         // setupExerciseStatusRecyclerView()
     }
+
 
     //onDestroy() is for resetting the timers and stop and shutdown the tts
     override fun onDestroy(){
@@ -384,10 +388,8 @@ class ExDetails : AppCompatActivity(), TextToSpeech.OnInitListener {
             HealthPermission.getReadPermission(StepsRecord::class),
             HealthPermission.getReadPermission(DistanceRecord::class),
             HealthPermission.getReadPermission(SpeedRecord::class),
-            HealthPermission.getReadPermission(ExerciseSessionRecord::class)
+            HealthPermission.getReadPermission(ExerciseSessionRecord::class),
+            HealthPermission.getWritePermission(ExerciseSessionRecord::class)
         )
     }
-//    SpeedRecord::class,
-//    DistanceRecord::class,
-//    StepsRecord::class,
 }
