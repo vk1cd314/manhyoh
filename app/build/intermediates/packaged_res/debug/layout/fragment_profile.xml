@@ -38,6 +38,7 @@
         app:layout_goneMarginBottom="24dp">
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/pfp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
@@ -270,8 +271,8 @@
     <androidx.cardview.widget.CardView
         android:layout_width="290dp"
         android:layout_height="60dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="40dp"
         app:cardCornerRadius="10dp"
         app:layout_constraintStart_toStartOf="parent"
 
@@ -284,14 +285,14 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:drawablePadding="8dp"
+            android:fontFamily="@font/nunito_extrabold"
             android:gravity="center"
             android:padding="8dp"
             android:text="Log Out"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:drawableStartCompat="@drawable/ic_logout"
-            app:drawableTint="@color/black"
-            android:fontFamily="@font/nunito_extrabold"/>
+            app:drawableTint="@color/black" />
 
 
     </androidx.cardview.widget.CardView>

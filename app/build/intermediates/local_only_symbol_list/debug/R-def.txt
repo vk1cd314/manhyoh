@@ -3,6 +3,9 @@ local
 array sleep_notes_array
 color black
 color blueMain
+color button_focused
+color button_normal
+color button_pressed
 color castGreen
 color darkblue
 color darkishPink
@@ -28,6 +31,7 @@ drawable background_score
 drawable baseline_access_time_24
 drawable baseline_arrow_back_24
 drawable baseline_clear_24
+drawable baseline_co_present_24
 drawable baseline_directions_walk_24
 drawable baseline_expand_24
 drawable baseline_home_24
@@ -39,6 +43,7 @@ drawable baseline_speed_24
 drawable boy_girl_running
 drawable burpee
 drawable buttkick
+drawable button_selector
 drawable cardio
 drawable cardio_cover
 drawable circular_progress_bar
@@ -111,6 +116,7 @@ id ageCL
 id ageIV
 id ageTV
 id ageWageIV
+id avgspeed
 id backButton
 id balls
 id bottomNavigationView
@@ -120,7 +126,9 @@ id cardView5
 id cardio
 id cardio_card
 id cardiostart
+id comments
 id conPass
+id distanceDialog
 id eMail
 id editWageIV
 id email
@@ -137,16 +145,21 @@ id llRestView
 id logInLayout
 id login_button
 id logout_button
+id maxspeed
+id minspeed
 id name
+id nameEditText
 id notifyBtn_id
 id numberTextView
 id nutritionCardView
 id password
 id passwords
 id pause
+id pfp
 id play
 id playRest
 id profile
+id profileImageView
 id progress
 id progressBar
 id progressBarExercise
@@ -160,6 +173,7 @@ id slider
 id sprint
 id squat
 id step_count_recyclerview
+id stepsDialog
 id stepsTV
 id strength
 id stretch
@@ -189,6 +203,7 @@ id wageTV
 layout cardioex
 layout custom_dialog_for_exit
 layout dashboard
+layout dialog_edit_profile
 layout ex_details
 layout fragment_dialog
 layout fragment_home
@@ -239,6 +254,7 @@ style Button5
 style Circular
 style CornerCut
 style DiamondCut
+style FullScreenMaterialDialog
 style RoundedSquare
 style SpecificCornerCut
 style SpecificCornerRounded

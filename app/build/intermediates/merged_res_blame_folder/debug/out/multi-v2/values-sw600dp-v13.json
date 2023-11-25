@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.mahnyoh.app-mergeDebugResources-66:/values-sw600dp-v13/values-sw600dp-v13.xml",
+            "outputFile": "com.example.mahnyoh.app-mergeDebugResources-67:/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
-                    "source": "/home/sayem/.gradle/caches/transforms-3/608a8ac28a68c8ecb7018c6aaeb1e3b4/transformed/material-1.9.0/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "source": "/home/muhnay/.gradle/caches/transforms-3/608a8ac28a68c8ecb7018c6aaeb1e3b4/transformed/material-1.9.0/res/values-sw600dp-v13/values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,10,11,12,13,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/home/sayem/.gradle/caches/transforms-3/a5e8bbcd00dcf8fa67d51134156b496f/transformed/appcompat-1.6.1/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "source": "/home/muhnay/.gradle/caches/transforms-3/a5e8bbcd00dcf8fa67d51134156b496f/transformed/appcompat-1.6.1/res/values-sw600dp-v13/values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

@@ -6,12 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.mahnyoh.R;
 import com.google.android.material.slider.Slider;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -22,7 +24,22 @@ public final class FragmentDialogBinding implements ViewBinding {
   private final ScrollView rootView;
 
   @NonNull
+  public final TextView avgspeed;
+
+  @NonNull
   public final Button cancelButton;
+
+  @NonNull
+  public final TextInputEditText comments;
+
+  @NonNull
+  public final TextView distanceDialog;
+
+  @NonNull
+  public final TextView maxspeed;
+
+  @NonNull
+  public final TextView minspeed;
 
   @NonNull
   public final TextInputLayout password;
@@ -33,13 +50,25 @@ public final class FragmentDialogBinding implements ViewBinding {
   @NonNull
   public final Slider slider;
 
-  private FragmentDialogBinding(@NonNull ScrollView rootView, @NonNull Button cancelButton,
-      @NonNull TextInputLayout password, @NonNull Button saveButton, @NonNull Slider slider) {
+  @NonNull
+  public final TextView stepsDialog;
+
+  private FragmentDialogBinding(@NonNull ScrollView rootView, @NonNull TextView avgspeed,
+      @NonNull Button cancelButton, @NonNull TextInputEditText comments,
+      @NonNull TextView distanceDialog, @NonNull TextView maxspeed, @NonNull TextView minspeed,
+      @NonNull TextInputLayout password, @NonNull Button saveButton, @NonNull Slider slider,
+      @NonNull TextView stepsDialog) {
     this.rootView = rootView;
+    this.avgspeed = avgspeed;
     this.cancelButton = cancelButton;
+    this.comments = comments;
+    this.distanceDialog = distanceDialog;
+    this.maxspeed = maxspeed;
+    this.minspeed = minspeed;
     this.password = password;
     this.saveButton = saveButton;
     this.slider = slider;
+    this.stepsDialog = stepsDialog;
   }
 
   @Override
@@ -69,9 +98,39 @@ public final class FragmentDialogBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.avgspeed;
+      TextView avgspeed = ViewBindings.findChildViewById(rootView, id);
+      if (avgspeed == null) {
+        break missingId;
+      }
+
       id = R.id.cancelButton;
       Button cancelButton = ViewBindings.findChildViewById(rootView, id);
       if (cancelButton == null) {
+        break missingId;
+      }
+
+      id = R.id.comments;
+      TextInputEditText comments = ViewBindings.findChildViewById(rootView, id);
+      if (comments == null) {
+        break missingId;
+      }
+
+      id = R.id.distanceDialog;
+      TextView distanceDialog = ViewBindings.findChildViewById(rootView, id);
+      if (distanceDialog == null) {
+        break missingId;
+      }
+
+      id = R.id.maxspeed;
+      TextView maxspeed = ViewBindings.findChildViewById(rootView, id);
+      if (maxspeed == null) {
+        break missingId;
+      }
+
+      id = R.id.minspeed;
+      TextView minspeed = ViewBindings.findChildViewById(rootView, id);
+      if (minspeed == null) {
         break missingId;
       }
 
@@ -93,8 +152,14 @@ public final class FragmentDialogBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentDialogBinding((ScrollView) rootView, cancelButton, password, saveButton,
-          slider);
+      id = R.id.stepsDialog;
+      TextView stepsDialog = ViewBindings.findChildViewById(rootView, id);
+      if (stepsDialog == null) {
+        break missingId;
+      }
+
+      return new FragmentDialogBinding((ScrollView) rootView, avgspeed, cancelButton, comments,
+          distanceDialog, maxspeed, minspeed, password, saveButton, slider, stepsDialog);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
